@@ -1,0 +1,76 @@
+        <mvc:View controllerName="assignment3.controller.View1"
+            xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+            <Page id="page">
+                <SplitApp id="SplitAppDemo" >
+                    <detailPages>
+                        <Page id="details" title="Employee Details" visible="false" >
+                            <content>
+                                <VBox class="sapUiSmallMargin">
+                                    <!-- <HBox class="sapUiSmallMarginBottom">
+                                        <VBox class="sapUiSmallMarginEnd">
+                                            <ObjectAttribute title="First Name" text="{FirstName}" />
+                                            <ObjectAttribute title="Last Name" text="{LastName}" />
+                                            <ObjectAttribute title="Grade" text="{Grade}" />
+                                        </VBox>
+                                        <VBox >
+                                            <ObjectAttribute title="Gender" text="{Gender}" />
+                                            <ObjectAttribute title="Designation" text="{Designation}" />
+                                            <ObjectAttribute title="Employee ID" text="{EmployeeID}" />
+                                        </VBox>
+                                    </HBox>
+                                     -->
+                                     <ObjectHeader >
+                                     <statuses>
+                                     <ObjectStatus title="Gender" text="{Gender}"/>
+                                     <ObjectStatus title="Designation" text="{Designation}"/>
+                                     <ObjectStatus title="Employee ID" text="{EmployeeID}"/>
+                                     </statuses>
+                                      <ObjectAttribute title="First Name" text="{FirstName}" />
+                                            <ObjectAttribute title="Last Name" text="{LastName}" />
+                                            <ObjectAttribute title="Grade" text="{Grade}" />
+                                     </ObjectHeader>
+                                    <IconTabBar id="idIconTabBarInlineMode" >
+                                        <items >
+                                            <IconTabFilter text="Personnel Details" >
+                                                <VBox class="sapUiSmallMargin">
+                                                    <ObjectAttribute title="Date of Birth" text="{DateOfBirth}" />
+                                                    <ObjectAttribute title="Father's Name" text="{FathersName}" />
+                                                    <ObjectAttribute title="Mother's Maiden Name" text="{MotherMaidenName}" />
+                                                </VBox>
+                                            </IconTabFilter>
+                                            <IconTabFilter text="Contact Details" >
+                                                <VBox class="sapUiSmallMargin">
+                                                    <ObjectAttribute title="Phone Number" text="{PhoneNumber}" />
+                                                    <ObjectAttribute title="Alternative Number" text="{AlternativeNumber}" />
+                                                    <ObjectAttribute title="Email Address" text="{EmailAddress}" />
+                                                </VBox>
+                                            </IconTabFilter>
+                                            <IconTabFilter text="Office" >
+                                                <VBox class="sapUiSmallMargin">
+                                                    <ObjectAttribute title="Designation" text="{Designation}" />
+                                                    <ObjectAttribute title="Skill Set" text="{SkillSet}" />
+                                                    <ObjectAttribute title="Date of Joining" text="{DateOfJoining}" />
+                                                </VBox>
+                                            </IconTabFilter>
+                                        </items>
+                                    </IconTabBar>
+                                </VBox>
+                            </content>
+                        </Page>
+                    </detailPages>
+                    <masterPages>
+                        <Page id="master" title="Employees" backgroundDesign="List">
+                            <SearchField placeholder="Search..." liveChange=".onSearch" />
+                            <List id="employeeList" items="{/employees}" itemPress=".onListItemPress">
+                                <StandardListItem title="{FirstName} {LastName}" description="{Designation}" type="Active"/>
+                            </List>
+                        </Page>
+                    </masterPages>
+                </SplitApp>
+            </Page>
+        </mvc:View>

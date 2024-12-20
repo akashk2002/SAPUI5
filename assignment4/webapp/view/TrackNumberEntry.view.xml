@@ -1,0 +1,19 @@
+    <mvc:View
+        controllerName="assignment4.controller.TrackNumberEntry"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns="sap.m">
+        <Page title="Track Number Entry">
+            <content>
+                <VBox class="sapUiSmallMargin">
+                    <Text text="Please enter your truck number below" />
+                    <Input placeholder="Enter truck number" width="50%" />
+                    <VBox class="sapUiSmallMargin" justifyContent="SpaceBetween">
+                        <Button type="Emphasized" text="Continue" press="onContinue" width="50%"/>
+
+                        <Button type="Emphasized" text="Back" press="onBack" width="50%"/>
+                       
+                    </VBox>
+                </VBox>
+            </content>
+        </Page>
+    </mvc:View>

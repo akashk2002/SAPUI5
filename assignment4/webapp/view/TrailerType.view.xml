@@ -1,0 +1,24 @@
+<mvc:View
+    controllerName="assignment4.controller.TrailerType"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Trailer Type" showNavButton="true" navButtonPress="onNavBack">
+        <VBox class="sapUiSmallMargin" alignItems="Start">
+            <HBox class="sapUiSmallMarginBottom" justifyContent="Center">
+                <Text text="Please select your trailer type below:" class="sapUiSmallMarginBottom"/>
+            </HBox>
+            <VBox class="sapUiSmallMarginBottom" width="100%" justifyContent="Start">
+                <Button type="Emphasized" text="48' side kits" press="onSelectTrailerType" width="20%" class="sapUiSmallMarginBottom"/>
+                <Button type="Emphasized" text="53' Spread Axle" press="onSelectTrailerType" width="20%" class="sapUiSmallMarginBottom"/>
+                <Button type="Emphasized" text="California Spread" press="onSelectTrailerType" width="20%" class="sapUiSmallMarginBottom"/>
+                <Button type="Emphasized" text="Step Deck" press="onSelectTrailerType" width="20%" class="sapUiSmallMarginBottom"/>
+                <Button type="Emphasized" text="Conestoga" press="onSelectTrailerType" width="20%" class="sapUiSmallMarginBottom"/>
+                <Button type="Emphasized" text="Other" press="onSelectTrailerType" width="20%" class="sapUiSmallMarginBottom"/>
+            </VBox>
+            <HBox class="sapUiSmallMarginBottom" justifyContent="SpaceBetween" >
+                <Button id="backButton" type="Emphasized" text="BACK" press="onNavBack" class="sapUiTinyMarginEnd"/>
+                <Button id="startOverButton" type="Emphasized" text="START OVER" press="onStartOver"/>
+            </HBox>
+        </VBox>
+    </Page>
+</mvc:View>

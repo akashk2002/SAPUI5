@@ -1,0 +1,16 @@
+<mvc:View
+    controllerName="assignment4.controller.CheckInConfirmation"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Confirmation of Check-In">
+        <VBox class="sapUiSmallMargin">
+            <Text text="Thank you for checking in at EXLTUBE"/>
+        </VBox>
+        <VBox class="sapUiSmallMargin">
+        <Text text="Please return to your truck and wait until further instructed"/>
+        </VBox>
+        <VBox >
+            <Button type="Emphasized" text="Main Menu" press="onMainMenu" width="50%"/>
+        </VBox>
+    </Page>
+</mvc:View>

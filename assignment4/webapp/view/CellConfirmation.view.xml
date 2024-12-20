@@ -1,0 +1,15 @@
+<mvc:View
+    controllerName="assignment4.controller.CellConfirmation"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Cell Confirmation" showNavButton="true" navButtonPress="onNavBack">
+        <VBox class="sapUiSmallMargin" alignItems="Center" style="background-color: #f5f5f5; padding: 20px; border-radius: 10px;">
+            <Text text="Confirm Cell Phone Number: {/cellPhone}" class="sapUiSmallMarginBottom" style="font-weight: bold; font-size: 1.2em; text-align: center;"/>
+            <Text text="Is it correct?" class="sapUiSmallMarginBottom" style="font-size: 1.1em; text-align: center;"/>
+            <HBox justifyContent="Center" width="50%">
+                <Button text="Yes, continue" press="onContinue" class="sapUiTinyMarginEnd" style="background-color: #28a745; color: white;"/>
+                <Button text="No, Go Back" press="onNavBack" style="background-color: #dc3545; color: white;"/>
+            </HBox>
+        </VBox>
+    </Page>
+</mvc:View>

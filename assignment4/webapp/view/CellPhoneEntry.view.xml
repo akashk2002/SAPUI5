@@ -1,0 +1,35 @@
+<mvc:View
+    controllerName="assignment4.controller.CellPhoneEntry"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Cell Phone Entry" showNavButton="true" navButtonPress="onNavBack">
+        <VBox class="sapUiSmallMargin">
+            <HBox class="sapUiSmallMargin">
+                <Text text="Please enter a cell phone number in the event an EXLTUBE employee needs to call you."/>
+            </HBox>
+            <HBox class="sapUiSmallMarginBottom" justifyContent="Start">
+                <Input id="inputPart1" placeholder="XXX" maxLength="3" width="30%" value="{/cellPhonePart1}" liveChange="onInputChange" class="sapUiSmallMarginEnd"/>
+                <Input id="inputPart2" placeholder="XXXX" maxLength="4" width="40%" value="{/cellPhonePart2}" liveChange="onInputChange" class="sapUiSmallMarginEnd"/>
+                <Input id="inputPart3" placeholder="XXX" maxLength="3" width="30%" value="{/cellPhonePart3}" liveChange="onInputChange"/>
+            </HBox>
+            <VBox class="sapUiSmallMarginBottom" width="100%" justifyContent="Start">
+                <Button id="continueButton" type="Emphasized" text="Continue" press="onContinue" width="50%"/>
+                <Button id="backButton" type="Emphasized" text="BACK" press="onNavBack" width="50%"/>
+                <Button id="startOverButton" type="Emphasized" text="START OVER" press="onStartOver" width="50%"/>
+            </VBox>
+        </VBox>
+        <Dialog id="cellConfirmationDialog" title="Cell Confirmation">
+            <VBox class="sapUiSmallMargin">
+                <Text text="Please confirm your cell phone number:"/>
+                <Text text="xxx-xxxx-xxx" class="sapUiSmallMarginBottom"/>
+            </VBox>
+            <VBox class="sapUiSmallMargin">
+            <Text text="is it correct?"/>
+            </VBox>
+            <VBox >
+                <Button type="Emphasized" text="Yes, continue" press="onConfirm" width="100%"/>
+                <Button type="Emphasized" text="Cancel" press="onCloseCellConfirmationDialog" width="100%"/>
+            </VBox>
+        </Dialog>
+    </Page>
+</mvc:View>

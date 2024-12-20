@@ -1,0 +1,21 @@
+<mvc:View
+    controllerName="assignment4.controller.LoadConfirmation"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Load Confirmation" showNavButton="true" navButtonPress="onNavBack">
+        <VBox class="sapUiSmallMargin" alignItems="Start">
+            <Text text="Load details confirmed" class="sapUiSmallMarginBottom"/>
+            <Text text="Please review the details and confirm to proceed." class="sapUiSmallMarginBottom"/>
+            <Text text="Our records indicate the following details for this shipment:" class="sapUiSmallMarginBottom"/>
+            <Text text="Customer: Honda" class="sapUiSmallMarginBottom"/>
+            <Text text="Carrier: CPort Transportation" class="sapUiSmallMarginBottom"/>
+            <Text text="Destination: Mumbai" class="sapUiSmallMarginBottom"/>
+            <Text text="Is this correct?" class="sapUiSmallMarginBottom"/>
+            <VBox class="sapUiSmallMarginBottom" width="100%" justifyContent="Start">
+                <Button  type="Emphasized" text="Yes, continue" press="onContinue" width="50%"/>
+                <Button  type="Emphasized" text="BACK" press="onNavBack" width="50%"/>
+                <Button  type="Emphasized" text="START OVER" press="onStartOver" width="50%"/>
+            </VBox>
+        </VBox>
+    </Page>
+</mvc:View>

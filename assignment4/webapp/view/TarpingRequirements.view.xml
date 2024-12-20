@@ -1,0 +1,18 @@
+<mvc:View
+    controllerName="assignment4.controller.TarpingRequirements"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Tarping Requirements" showNavButton="true" navButtonPress="onNavBack">
+        <VBox class="sapUiSmallMargin">
+            <Text text="Please ensure tarping requirements are met." class="sapUiSmallMarginBottom"/>
+            <Text text="Listed below are the customer's requirements regarding tarping:" class="sapUiSmallMarginBottom"/>
+            <Text text="(tarping instructions from customer master)" class="sapUiSmallMarginBottom"/>
+            <Text text="All tarping must be done outside, weather permitting." class="sapUiSmallMarginBottom"/>
+            <VBox class="sapUiSmallMarginBottom" width="100%" justifyContent="Start">
+                <Button id="continueButton" type="Emphasized" text="Yes, I understand" press="onContinue" width="50%"/>
+                <Button id="backButton" type="Emphasized" text="BACK" press="onNavBack" width="50%"/>
+                
+            </VBox>
+        </VBox>
+    </Page>
+</mvc:View>

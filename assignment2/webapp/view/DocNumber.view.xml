@@ -1,0 +1,19 @@
+<mvc:View controllerName="assignment2.controller.DocNumber"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    
+    <Page id="docNumberPage" title="Document Number">
+        <content>
+            <VBox>
+                <Label text="Doc Number" />
+                <Input id="docNumber" editable="false" />
+            </VBox>
+        </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button text="Back" press="onBackPress" />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

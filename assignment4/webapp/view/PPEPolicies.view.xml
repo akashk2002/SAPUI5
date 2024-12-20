@@ -1,0 +1,22 @@
+<mvc:View
+    controllerName="assignment4.controller.PPEPolicies"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="PPE and Policies" showNavButton="true" navButtonPress="onNavBack">
+        <VBox class="sapUiSmallMargin">
+            <Text text="Please read and understand the PPE and policies." class="sapUiSmallMarginBottom"/>
+            <Text text="The following PPE is required:" class="sapUiSmallMarginBottom"/>
+            <Text text="- Hardhat" class="sapUiSmallMarginBottom"/>
+            <Text text="- Safety Glasses" class="sapUiSmallMarginBottom"/>
+            <Text text="Please note the following policies:" class="sapUiSmallMarginBottom"/>
+            <Text text="- Driver should stay in their trucks at all times unless otherwise instructed" class="sapUiSmallMarginBottom"/>
+            <Text text="- 5 mph speed limit" class="sapUiSmallMarginBottom"/>
+            <Text text="Must honk before entering bay" class="sapUiSmallMarginBottom"/>
+            <VBox class="sapUiSmallMarginBottom" width="100%" justifyContent="Start">
+                <Button id="continueButton" type="Emphasized" text="I understand" press="onContinue" width="50%"/>
+
+                <Button id="backButton" type="Emphasized" text="BACK" press="onNavBack" width="50%"/>
+            </VBox>
+        </VBox>
+    </Page>
+</mvc:View>

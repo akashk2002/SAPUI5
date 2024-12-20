@@ -1,0 +1,116 @@
+<mvc:View  controllerName="assignment1.controller.Assignment1"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+    
+    <Page  >
+         <f:SimpleForm id="SimpleFormDisplay354wide" class="title"
+            editable="false"
+            layout="ResponsiveGridLayout"
+            title="Employee Health checklist for Covid 19"
+            labelSpanXL="4"
+            labelSpanL="3"
+            labelSpanM="4"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="0"
+            emptySpanL="4"
+            emptySpanM="0"
+            emptySpanS="0"
+            columnsXL="2"
+            columnsL="1"
+            columnsM="1"
+            singleContainerFullSize="false" >
+        <f:content>
+        <VBox >
+            <HBox >
+                    <Label text="Employee Id" labelFor="productInput" />
+                    <Label text="" width="1.5rem"/>
+                    <Input id="productInput" width="120%"/>
+                    <Label text="  " width="15rem"/>
+                    <Label text="Name" labelFor="productInput1" />
+                    <Label text=" " width="4rem"/>
+                    <Input id="productInput1" width="100%"/>
+                </HBox>
+                <HBox >
+                    <Label text="Email Address" labelFor="productInput3" />
+                    <Label text="" width="1rem"/>
+                    <Input id="productInput3" width="120%"/>
+                    <Label text="  " width="15rem"/>
+                    <Label text="Designation" labelFor="productInput4" />
+                    <Label text="" width="1rem"/>
+                    <Input id="productInput4"/>
+                </HBox>
+
+            <Label id="label" labelFor="containerInput" displayOnly="true" wrapping="true" text="1. How old are you" />
+            <Input id="containerInput" placeholder="in years" />
+
+            <Label text="2. Please select your gender" width="100%" />
+            <RadioButtonGroup columns="1">
+                <RadioButton text="Male" />
+                <RadioButton text="Female" />
+                <RadioButton text="Other" />
+            </RadioButtonGroup>
+
+            <Label text="3. Please let us know your current body temperature in degree Fahrenheit" width="100%" />
+            <RadioButtonGroup columns="1">
+                <RadioButton text="Normal" />
+                <RadioButton text="Fever" />
+                <RadioButton text="High Fever" />
+                <RadioButton text="Don't Know" />
+            </RadioButtonGroup>
+
+            <Label text="4. Are you experiencing any of the following symptoms?" width="100%" />
+            <VBox>
+                <CheckBox text="Dry Cough" />
+                <CheckBox text="Loss of Taste/Smell" />
+                <CheckBox text="Sore Throat" />
+                <CheckBox text="Weakness" />
+            </VBox>
+
+            <Label text="5. Are you experiencing any of the following symptoms?" width="100%" />
+            <VBox>
+                <CheckBox text="Dry Cough" />
+                <CheckBox text="Loss of Taste/Smell" />
+                <CheckBox text="Sore Throat" />
+                <CheckBox text="Weakness" />
+            </VBox>
+
+            <Label text="6. We would like know about your smoking history" width="100%" />
+            <RadioButtonGroup columns="1">
+                <RadioButton text="Current Smoker" />
+                <RadioButton text="Previous Smoker" />
+                <RadioButton text="Never smoke" />
+            </RadioButtonGroup>
+
+            <Label text="7. Are you experiencing any of the following symptoms?" width="100%" />
+            <VBox>
+                <CheckBox text="Dry Cough" />
+                <CheckBox text="Loss of Taste/Smell" />
+                <CheckBox text="Sore Throat" />
+                <CheckBox text="Weakness" />
+            </VBox>
+
+            <Label text="8. Are you experiencing any of the following symptoms?" width="100%" />
+            <VBox>
+                <CheckBox text="Dry Cough" />
+                <CheckBox text="Loss of Taste/Smell" />
+                <CheckBox text="Sore Throat" />
+                <CheckBox text="Weakness" />
+                <CheckBox text="Dry Cough" />
+                <CheckBox text="Loss of Taste/Smell" />
+                <CheckBox text="Sore Throat" />
+                <CheckBox text="Weakness" />
+            </VBox>
+        </VBox>
+        </f:content>
+        </f:SimpleForm>
+        <footer>
+        <Toolbar  >
+        <ToolbarSpacer />
+         <Button text="Submit" type="Emphasized" press="onSubmit" />
+        
+        </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

@@ -1,0 +1,58 @@
+<mvc:View
+    controllerName="assignment4.controller.OutboundShipment"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Outbound Shipment" showNavButton="true" navButtonPress="onNavBack">
+        <VBox class="sapUiSmallMargin" alignItems="Start">
+            <HBox class="sapUiSmallMarginBottom" justifyContent="Start">
+                <Text text="Please enter the shipment ID number for the load you are picking up" class="sapUiSmallMarginBottom"/>
+            </HBox>
+            <HBox class="sapUiSmallMarginBottom" justifyContent="Start">
+                <Text text="This is an eight-digit number that can be found on your shipment tender" class="sapUiSmallMarginBottom"/>
+            </HBox>
+            <HBox class="sapUiSmallMarginBottom" justifyContent="Start" alignItems="Center">
+                <Label text="Shipment ID: "/>
+                <Input width="100%" placeholder="Enter Shipment ID" value="{/shipmentId}" class="sapUiSmallMarginStart"/>
+            </HBox>
+            <VBox class="sapUiSmallMarginBottom" width="100%" justifyContent="Start">
+                <Button id="continueButton" type="Emphasized" text="Continue" press="onContinue" width="50%"/>
+                <Button id="noShipmentIdButton" type="Emphasized" text="I Don't have Shipment ID Number" press="onContinue" width="50%"/>
+                <Button id="helpButton" type="Emphasized" text="Help" press="onHelp" width="50%"/>
+                <Button id="cancelButton" type="Emphasized" text="BACK" press="onNavBack" width="50%"/>
+            </VBox>
+        </VBox>
+        <Dialog id="helpDialog" title="Assistance Contact Information">
+            <VBox class="sapUiSmallMargin">
+                <Text text="If you need assistance, please call one of the numbers listed below:"/>
+                <VBox class="sapUiSmallMargin">
+                    <Text text="6 am - 2 pm: 816-810-9532"/>
+                </VBox>
+                <VBox class="sapUiSmallMargin">
+                    <Text text="2 pm - 10 pm: 816-809-8028"/>
+                </VBox>
+                <VBox class="sapUiSmallMargin">
+                    <Text text="10 pm - 6 am: 816-810-0988"/>
+                </VBox>
+            </VBox>
+            <VBox class="sapUiSmallMargin">
+                <Button text="Close" press="onCloseHelpDialog" width="100%"/>
+            </VBox>
+        </Dialog>
+        <Dialog id="invalidShipmentDialog" title="Invalid Shipment ID">
+            <VBox class="sapUiSmallMargin">
+                <Text text="The Shipment ID you entered is invalid. Please check and try again."/>
+            </VBox>
+            <VBox class="sapUiSmallMargin">
+                <Button text="Close" press="onCloseInvalidShipmentDialog" width="100%"/>
+            </VBox>
+        </Dialog>
+        <Dialog id="noShipmentIdDialog" title="No Shipment ID">
+            <VBox class="sapUiSmallMargin">
+                <Text text="A Shipment ID is required to check in. Please call your dispatcher."/>
+            </VBox>
+            <VBox class="sapUiSmallMargin">
+                <Button text="Close" press="onCloseNoShipmentIdDialog" width="100%"/>
+            </VBox>
+        </Dialog>
+    </Page>
+</mvc:View>

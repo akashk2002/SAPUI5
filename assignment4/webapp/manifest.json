@@ -1,0 +1,171 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "assignment4",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.16.0",
+            "toolsId": "70e111a8-4766-4eb2-842e-6300c622e231"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "dependencies": {
+            "minUI5Version": "1.131.1",
+            "libs": {
+               "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "assignment4.i18n.i18n"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "assignment4.view",
+                "async": true,
+                "viewPath": "assignment4.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteView1",
+                    "pattern": "",
+                    "target": [
+                        "TargetView1"
+                    ]
+                },
+                {
+                    "pattern": "OutboundShipment",
+                    "name": "OutboundShipment",
+                    "target": "OutboundShipment"
+                },
+                {
+                    "pattern": "LoadConfirmation",
+                    "name": "LoadConfirmation",
+                    "target": "LoadConfirmation"
+                },
+                {
+                    "pattern": "CellPhoneEntry",
+                    "name": "CellPhoneEntry",
+                    "target": "CellPhoneEntry"
+                },
+                {
+                    "pattern": "CellConfirmation",
+                    "name": "CellConfirmation",
+                    "target": "CellConfirmation"
+                },
+                {
+                    "pattern": "TrailerType",
+                    "name": "TrailerType",
+                    "target": "TrailerType"
+                },
+                {
+                    "pattern": "TarpingRequirements",
+                    "name": "TarpingRequirements",
+                    "target": "TarpingRequirements"
+                },
+                {
+                    "pattern": "PPEPolicies",
+                    "name": "PPEPolicies",
+                    "target": "PPEPolicies"
+                },
+                {
+                    "pattern": "CheckInConfirmation",
+                    "name": "CheckInConfirmation",
+                    "target": "CheckInConfirmation"
+                },
+                {
+                    "pattern": "TrackNumberEntry",
+                    "name": "TrackNumberEntry",
+                    "target": "TrackNumberEntry"
+
+                }
+            ],
+            "targets": {
+                "TargetView1": {
+                    "id": "View1",
+                    "name": "View1"
+                },
+                "OutboundShipment": {
+                    "viewName": "OutboundShipment"
+                },
+                "LoadConfirmation": {
+                    "viewName": "LoadConfirmation"
+                },
+                "CellPhoneEntry": {
+                    "viewName": "CellPhoneEntry"
+                },
+                "CellConfirmation": {
+                    "viewName": "CellConfirmation"
+                },
+                "TrailerType": {
+                    "viewName": "TrailerType"
+                },
+                "TarpingRequirements": {
+                    "viewName": "TarpingRequirements"
+                },
+                "PPEPolicies": {
+                    "viewName": "PPEPolicies"
+                },
+                "CheckInConfirmation": {
+                    "viewName": "CheckInConfirmation"
+                },
+                "TrackNumberEntry":{
+                    "viewName": "TrackNumberEntry"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "assignment4.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    }
+}

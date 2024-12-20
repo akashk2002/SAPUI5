@@ -1,0 +1,81 @@
+<mvc:View xmlns:cards="sap.f.cards" controllerName="assignment2.controller.a2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    
+    <Page id="page" title="Generate Proposed Number">
+        <content>
+
+            <!-- Site Dropdown -->
+            <VBox>
+                <Label text="Site" required="true" />
+                <Select id="site" change="onSiteChange">
+                    <items>
+                        <core:Item key="" text="---Select---"></core:Item>
+                        <core:Item key="site1" text="Site 1" />
+                        <core:Item key="site2" text="Site 2" />
+                        <!-- Add more items as needed -->
+                    </items>
+                </Select>
+            </VBox>
+
+            <!-- Document Type Dropdown -->
+            <VBox id="documentTypeVBox" visible="false">
+                <Label text="Document Type" required="true" />
+                <Select id="documentType" change="onDocumentTypeChange">
+                    <items>
+                        <core:Item key="null" text="---Select Document Type---" />
+                        <core:Item key="docType1" text="Document Type 1" />
+                        <core:Item key="docType2" text="Document Type 2" />
+                        <!-- Add more items as needed -->
+                    </items>
+                </Select>
+            </VBox>
+
+            <!-- Department Dropdown -->
+            <VBox id="departmentVBox" visible="false">
+                <Label text="Department" required="true" />
+                <Select id="department" change="onDepartmentChange">
+                    <items>
+                        <core:Item key="null" text="---Select Department type---" />
+                        <core:Item key="dept1" text="Department 1" />
+                        <core:Item key="dept2" text="Department 2" />
+                        <!-- Add more items as needed -->
+                    </items>
+                </Select>
+            </VBox>
+
+            <!-- Customer Dropdown -->
+            <VBox id="customerVBox" visible="false">
+                <Label text="Customer" />
+                <Select id="customer" change="onInputChange">
+                    <items>
+                        <core:Item key="" text="--Select Customer---" />
+                        <core:Item key="customer1" text="Customer 1" />
+                        <core:Item key="customer2" text="Customer 2" />
+                        <!-- Add more items as needed -->
+                    </items>
+                </Select>
+            </VBox>
+
+            <!-- Proposed Number Display Field -->
+            <VBox>
+                <Label text="Proposed Number" />
+                <Input id="proposedNumber" editable="false" />
+            </VBox>
+
+            <!-- Doc Number Display Field -->
+            <VBox id="docNumberVBox" visible="false">
+                <Label text="Doc Number" />
+                <Input id="docNumber" editable="false" />
+            </VBox>
+        </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button text="Next" press="onNextPress" />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>
