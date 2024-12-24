@@ -1,0 +1,215 @@
+
+<mvc:View controllerName="com.yash.assignment5.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:core="sap.ui.core"
+    xmlns="sap.m" xmlns:f="sap.f"  xmlns:l="sap.ui.layout"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:svm="sap.ui.comp.smartvariants">
+    <Page id="page" title="Employee Details">
+        <content>
+        <HBox>
+            <Image src="https://cdn-icons-png.flaticon.com/512/622/622848.png" alt="Employee Image" width="100px" height="100px" class="image" />
+        <VBox>
+            <ObjectHeader id="objectHeader" >
+                <attributes>
+                    <ObjectAttribute text="{FirstName} {LastName}" />
+                    <ObjectAttribute text="{Title}" />
+                    <ObjectAttribute text="{HomePhone}" />
+                    <ObjectAttribute text="{Country}" />
+                </attributes>
+            </ObjectHeader>
+        </VBox>
+        </HBox>
+ 
+         <IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+             <items>
+                <IconTabFilter text="EMPLOYEE INFORMATION" key="EmployeeInformation" id="iconTabBar">
+                <HBox justifyContent="SpaceBetween" id="hbox">
+                        <VBox width="100%" class="layout" id="vbox1">
+                            <Title text="Personal Details" class="title"/>
+                            <Label text="Birth Date" />
+                            <Input id="birthdate" value="{path: 'BirthDate', formatter: '.formatDate'}"  width="70%"  editable="false"/>
+                        </VBox>
+                        <VBox width="100%" class="layout" id="vbox2">
+                            <Title text="Address Details" class="title"/>
+                            <Label text="Address:" />
+                            <Input id="address" value="{Address}"  width="70%" editable="false"/>
+ 
+                            <Label text="PostalCode:" />
+                            <Input id="PostalCode" value="{PostalCode}"  width="70%"  editable="false"/>
+                        </VBox>
+                        <VBox width="100%" class="layout " id="vbox3">
+                            <Title text="Contact Details" class="title"/>
+                            <Label text="Extension" />
+                            <Input id="extension" value="{Extension}"  width="70%"  editable="false"/>
+                        </VBox>
+                        <Button text="Edit" press="onEditPress" visible="true" id="editButton"/>
+                        <Button text="Save" press="onSavePress" visible="false" id="saveButton" class="sapUiSmallMargin"/>
+                        <Button text="Cancel" press="onCancelPress" visible="false" id="cancelButton" class="sapUiSmallMargin"/>
+                    </HBox>
+                </IconTabFilter> 
+ 
+                <IconTabFilter text="ORDERS" key="Orders">
+                    
+                    <f:DynamicPageHeader>
+					<f:content>
+						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+							<fb:filterGroupItems>
+                                <fb:FilterGroupItem name="Order Id" label="Order Id" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="Order Id"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/Orders',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{OrderID}" text="{OrderID}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								
+                                <fb:FilterGroupItem name="Customer Id" label="Customer Id" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="Customer Id"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/Orders',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{CustomerID}" text="{CustomerID}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+
+								<fb:FilterGroupItem name="Ship via" label="Ship via" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="Ship via"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/Orders',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{ShipVia}" text="{ShipVia}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+					</f:content>
+				</f:DynamicPageHeader>
+
+				<Table
+					id="table"
+					items="{OrderData>/Orders}" 
+				>
+					<columns>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Order Id"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Customer Id"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Ship Via"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Ship Name"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Freight"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Ship Country"/>
+						</Column>
+					</columns>
+
+					<items>
+						<ColumnListItem vAlign="Middle" type="Active">
+							<cells>
+								<Text text="{OrderData>OrderID}" id="OrderId"/>
+								<Link text="{OrderData>CustomerID}" id="CustomerId" press="onCustomerPopover"/>
+								<Link text="{OrderData>ShipVia}" id="shipVia" press="onShipViaPopover"/>
+								<Text text="{OrderData>ShipName}" id="shipName"/>
+								<Text text="{OrderData>Freight}" id="frieght"/>
+								<Text text="{OrderData>ShipCountry}" id="shipCountry"/>
+								
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+		
+
+                </IconTabFilter>
+                <IconTabFilter text="TERRITORIES" key="Territories"> 
+					<f:DynamicPageHeader>
+					<f:content>
+						<fb:FilterBar id="filterBar" persistencyKey="myPersKey" useToolbar="false" search=".onSearchT" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+							<fb:filterGroupItems>
+                                <fb:FilterGroupItem name="Territory Id" label="Territory Id" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="Territory Id"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/Territories',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{TerritoryID}" text="{TerritoryID}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								
+                                
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+					</f:content>
+				</f:DynamicPageHeader>
+
+				<Table
+					id="tableTerritories"
+					items="{/Territories}" 
+				>
+					<columns>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Territory Id"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Territory Description"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Region Id"/>
+						</Column>
+					</columns>
+
+					<items>
+						<ColumnListItem vAlign="Middle" type="Active">
+							<cells>
+								<Link text="{TerritoryID}"/>
+								<Text text="{TerritoryDescription}" />
+								<Text text="{RegionID}" />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+		
+				</IconTabFilter>
+            </items>
+        </IconTabBar>
+        </content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button type="Emphasized" text="Back" press="onBackToView1"/>
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>
+ 

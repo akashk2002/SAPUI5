@@ -1,0 +1,58 @@
+<mvc:View controllerName="com.yash.assignment5.controller.View4"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Page id="page" title="Product Details" >
+      <content>
+       
+         <FlexBox justifyContent="Center"  class="productIdContainer">
+                    <Label text="Product ID:" design="Bold"  />
+                    <Text text="{/ProductID}" id="productId" />
+            </FlexBox>
+         <VBox class="container-4">
+        <HBox>
+            <Label text="Product Name :" design="Bold" />
+            <Text text="{ProductDetailsData>ProductName}"  id="productName"/>
+        </HBox>
+    
+          <HBox >
+            <Label text="Supplier ID :" design="Bold" />
+            <Link text="{ProductDetailsData>SupplierID}" id="supplierId" press="onSupplierInfoPopover" />
+         
+           </HBox>
+        <HBox>
+            <Label text="Category ID :" design="Bold" />
+            <Link text="{ProductDetailsData>CategoryID}" press="onCategoryInfoPopover" id="categoryId" />
+           
+          </HBox>
+
+           <HBox >
+            <Label text="Quantity Per Unit : " design="Bold" />
+            <Text text="{ProductDetailsData>QuantityPerUnit}" id="quantityPerUnit"/>
+            </HBox>
+            <HBox >
+            <Label text="Unit Price : "  design="Bold"/>
+            <Text text="{ProductDetailsData>UnitPrice}"  id="unitPrice"/>
+            </HBox>
+            <HBox>
+            <Label text="Units in Stock : " design="Bold" />
+            <Text text="{ProductDetailsData>UnitsInStock}" id="unitsInStock"/>
+            </HBox>
+            <HBox>
+            <Label text="Units On Order : " design="Bold" />
+            <Text text="{ProductDetailsData>UnitsOnOrder}" id="unitsOnOrder"/>
+            </HBox>
+            <HBox>
+            <Label text="Reorder Level : " design="Bold" />
+            <Text text="{ProductDetailsData>ReorderLevel}" id="reorderLevel"/>
+            </HBox>
+
+            <HBox>
+            <Label text="Discontinued : " design="Bold" />
+            <Text text="{ProductDetailsData>Discontinued}" id="discontinued"/>
+            </HBox>
+        </VBox>
+       </content>
+    </Page>
+</mvc:View>
+ 
+ 
