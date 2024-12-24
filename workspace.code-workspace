@@ -1,1 +1,10 @@
-{"folders":[{"path":"assignment5"}],"settings":{}}
+{"folders":[
+        {
+            "name": "projects",
+            "path": "."
+        },
+        {
+            "name": "assignment5",
+            "path": "assignment5"
+        }
+    ],"settings":{}}
