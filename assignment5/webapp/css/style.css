@@ -1,0 +1,32 @@
+/* Enter your custom styles here */
+.container {
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.layout {
+    padding: 20px;
+}
+
+.title {
+    margin-bottom: 15px;
+}
+
+.image {
+    
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.sapUiPopoverHeader .sapMActionSheetCloseButton {
+    float: right;
+    margin-right: 0.5rem; 
+  }
+
+  .popover {
+    padding: 20px;
+  }
+  .container-4 {
+    padding: 20px;
+  }

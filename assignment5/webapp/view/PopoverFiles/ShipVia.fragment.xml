@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" >
+    
+    <Popover title="Shipper Informations" showHeader="true" placement="Auto" id="shipperInformations1">
+        <content>
+        
+        <VBox class="popover">
+        
+                <HBox>
+                    <Label text="Company Name:"/>
+                    <Text text="{OrderModel>/Shipper/CompanyName}"  id="companyName"/>
+                </HBox>
+            
+                <HBox>
+                    <Label text="Shipper Id:"/>
+                    <Text text="{OrderModel>/Shipper/ShipperID}" id="shipperId"/>
+                </HBox>
+           
+                <HBox>
+                    <Label text="Contact:"/>
+                    <Text text="{OrderModel>/Shipper/Phone}" id="contact"/>
+                </HBox>
+          
+            
+       
+           
+            <Button text="Close" press="onClosePopover1"/>
+        
+        </VBox>
+        
+        </content>
+          
+   </Popover>
+</core:FragmentDefinition>
