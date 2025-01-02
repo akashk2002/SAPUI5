@@ -7,7 +7,6 @@
     <Page id="page" title="Employee Details">
         <content>
         <HBox>
-            <Image src="https://cdn-icons-png.flaticon.com/512/622/622848.png" alt="Employee Image" width="100px" height="100px" class="image" />
         <VBox>
             <ObjectHeader id="objectHeader" >
                 <attributes>

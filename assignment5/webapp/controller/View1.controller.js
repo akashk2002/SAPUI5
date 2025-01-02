@@ -22,14 +22,14 @@ sap.ui.define([
         onSearch: function () {
             this.aFilters = [];
        
-            var sEmployeeId = this.getControlValue("EmployeeiD");
+            var sEmployeeId = this.getControlValue("EmployeeID");
             sEmployeeId = sEmployeeId ? sEmployeeId.trim() : null; 
             var sCity = this.getControlValue("City");
             var sCountry = this.getControlValue("Country");
             var sRegion = this.getControlValue("Region");
        
             if (sEmployeeId) {
-                this.sEmployeeId = String(sEmployeeId);
+                this.sEmployeeId = parseInt(sEmployeeId);
                 this.aFilters.push(new Filter("EmployeeID", FilterOperator.Contains, sEmployeeId));
             }
             if (sCity) {

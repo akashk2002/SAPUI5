@@ -16,7 +16,6 @@ sap.ui.define([
             this.oRouter1 = sap.ui.core.UIComponent.getRouterFor(this);
 
             this.oRouter2 = sap.ui.core.UIComponent.getRouterFor(this);
-            // Assuming you have a model named "Employees" set in your manifest or component
             var oModel = this.getOwnerComponent().getModel("Employees");
             this.getView().setModel(oModel, "Employees");
         

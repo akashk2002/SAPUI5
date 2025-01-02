@@ -13,8 +13,8 @@
                 <Select id="site" change="onSiteChange">
                     <items>
                         <core:Item key="" text="---Select---"></core:Item>
-                        <core:Item key="site1" text="Site 1" />
-                        <core:Item key="site2" text="Site 2" />
+                        <core:Item key="10" text="10-LG" />
+                        <core:Item key="12" text="12-XIM" />
                         <!-- Add more items as needed -->
                     </items>
                 </Select>
@@ -26,8 +26,8 @@
                 <Select id="documentType" change="onDocumentTypeChange">
                     <items>
                         <core:Item key="null" text="---Select Document Type---" />
-                        <core:Item key="docType1" text="Document Type 1" />
-                        <core:Item key="docType2" text="Document Type 2" />
+                        <core:Item key="EL" text="EL-ELECTRICAL" />
+                        <core:Item key="TL" text="TL-TECHNICAL" />
                         <!-- Add more items as needed -->
                     </items>
                 </Select>
@@ -39,9 +39,9 @@
                 <Select id="department" change="onDepartmentChange">
                     <items>
                         <core:Item key="null" text="---Select Department type---" />
-                        <core:Item key="dept1" text="Department 1" />
-                        <core:Item key="dept2" text="Department 2" />
-                        <!-- Add more items as needed -->
+                        <core:Item key="24-INTRODUCTION" text="Department 1" />
+                        <core:Item key="25-PROCESS" text="Department 2" />
+                        
                     </items>
                 </Select>
             </VBox>
@@ -52,9 +52,9 @@
                 <Select id="customer" change="onInputChange">
                     <items>
                         <core:Item key="" text="--Select Customer---" />
-                        <core:Item key="customer1" text="Customer 1" />
-                        <core:Item key="customer2" text="Customer 2" />
-                        <!-- Add more items as needed -->
+                        <core:Item key="00RED" text="Customer 1" />
+                        <core:Item key="11BL" text="Customer 2" />
+                        
                     </items>
                 </Select>
             </VBox>

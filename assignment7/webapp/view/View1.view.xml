@@ -1,0 +1,24 @@
+<mvc:View controllerName="assignment7.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+    xmlns:l="sap.ui.layout">
+    <tnt:ToolPage>
+        <tnt:header>
+            <tnt:ToolHeader>
+                <Button icon="sap-icon://add-employee" text="User" press="handleResponsivePopoverPress" ariaHasPopup="Dialog" />
+                <Text text="Employee List" />
+                <ToolbarSpacer />
+                <Button text="A-Z Language" press="onLanguagePress" />
+                <Button icon="sap-icon://filter" text="Filter" press="onFilterPress" />
+            </tnt:ToolHeader>
+        </tnt:header>
+        <tnt:mainContents>
+            <Page>
+                <content>
+                    <!-- Your page content here -->
+                </content>
+            </Page>
+        </tnt:mainContents>
+    </tnt:ToolPage>
+</mvc:View>
