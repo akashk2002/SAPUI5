@@ -1,85 +1,98 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
-    "sap/m/ResponsivePopover",
-    "sap/m/VBox",
-    "sap/m/Text",
-    "sap/m/Dialog",
-    "sap/m/Button",
-    "sap/ui/model/json/JSONModel",
-    "sap/ui/core/Fragment"
-], function (Controller, ResponsivePopover, VBox, Text, Dialog, Button, JSONModel, Fragment) {
+    'sap/ui/core/mvc/Controller',
+    'sap/ui/model/json/JSONModel'
+], function(Controller, JSONModel) {
     "use strict";
 
     return Controller.extend("assignment7.controller.View1", {
-        onInit: function () {
-            var oModel = new JSONModel({
-                filterOptions: [
-                    { key: "option1", text: "Option 1" },
-                    { key: "option2", text: "Option 2" },
-                    { key: "option3", text: "Option 3" },
-                    { key: "option4", text: "Option 4" }
-                ]
-            });
+        onInit: function() {
+            var oModel = new JSONModel();
+            oModel.loadData("/model/employee.json");
             this.getView().setModel(oModel);
 
-            // Fetch app version from manifest.json
-            var oManifest = this.getOwnerComponent().getManifest();
-            var sAppVersion = oManifest["sap.app"].applicationVersion.version;
-            this.getView().setModel(new JSONModel({ appVersion: sAppVersion }), "appModel");
+            // Update employee count
+            this._updateEmployeeCount();
         },
 
-        handleResponsivePopoverPress: function (oEvent) {
-			var oButton = oEvent.getSource(),
-				oView = this.getView();
-
-			if (!this._pPopover) {
-				this._pPopover = Fragment.load({
-					id: oView.getId(),
-					name: "sap.m.sample.ResponsivePopover.view.Popover",
-					controller: this
-				}).then(function(oPopover) {
-					oView.addDependent(oPopover);
-					oPopover.bindElement("/ProductCollection/0");
-					return oPopover;
-				});
-			}
-			this._pPopover.then(function(oPopover) {
-				oPopover.openBy(oButton);
-			});
-		},
-        onLanguagePress: function (oEvent) {
-            if (!this._oLanguagePopover) {
-                this._oLanguagePopover = new ResponsivePopover({
-                    title: "Select Language",
-                    contentWidth: "200px",
-                    content: new VBox({
-                        items: [
-                            new Text({ text: "English" }),
-                            new Text({ text: "Spanish" }),
-                            new Text({ text: "French" }),
-                            new Text({ text: "German" })
-                        ]
-                    })
-                });
-            }
-            this._oLanguagePopover.openBy(oEvent.getSource());
+        _updateEmployeeCount: function() {
+            var oModel = this.getView().getModel();
+            var aEmployees = oModel.getProperty("/employees");
+            var iCount = aEmployees ? aEmployees.length : 0;
+            this.getView().byId("employeeCount").setText("Employee Count: " + iCount);
         },
 
-        onFilterPress: function (oEvent) {
-            var sAppVersion = this.getView().getModel("appModel").getProperty("/appVersion");
-            if (!this._oFilterDialog) {
-                this._oFilterDialog = new Dialog({
-                    title: "App Version",
-                    content: new Text({ text: "App Version: " + sAppVersion }),
-                    beginButton: new Button({
-                        text: "Close",
-                        press: function () {
-                            this._oFilterDialog.close();
-                        }.bind(this)
-                    })
-                });
-            }
-            this._oFilterDialog.open();
+        onOpenAddEmployeeDialog: function() {
+            this.getView().byId("addEmployeeDialog").open();
+        },
+
+        onCloseAddEmployeeDialog: function() {
+            this.getView().byId("addEmployeeDialog").close();
+        },
+
+        onAddEmployee: function() {
+            var oView = this.getView();
+            var oModel = oView.getModel();
+            var aEmployees = oModel.getProperty("/employees");
+
+            var oNewEmployee = {
+                empId: oView.byId("empIdInput").getValue(),
+                name: oView.byId("nameInput").getValue(),
+                birthDate: oView.byId("birthDateInput").getDateValue().toISOString().split('T')[0],
+                hireDate: oView.byId("hireDateInput").getDateValue().toISOString().split('T')[0],
+                address: oView.byId("addressInput").getValue(),
+                city: oView.byId("cityInput").getValue(),
+                country: oView.byId("countryInput").getValue(),
+                religion: oView.byId("religionInput").getValue()
+            };
+
+            aEmployees.push(oNewEmployee);
+            oModel.setProperty("/employees", aEmployees);
+
+            // Update employee count
+            this._updateEmployeeCount();
+
+            // Clear input fields
+            oView.byId("empIdInput").setValue("");
+            oView.byId("nameInput").setValue("");
+            oView.byId("birthDateInput").setDateValue(null);
+            oView.byId("hireDateInput").setDateValue(null);
+            oView.byId("addressInput").setValue("");
+            oView.byId("cityInput").setValue("");
+            oView.byId("countryInput").setValue("");
+            oView.byId("religionInput").setValue("");
+
+            // Close the dialog
+            this.onCloseAddEmployeeDialog();
+        },
+
+        onOpenDeleteEmployeeDialog: function() {
+            this.getView().byId("deleteEmployeeDialog").open();
+        },
+
+        onCloseDeleteEmployeeDialog: function() {
+            this.getView().byId("deleteEmployeeDialog").close();
+        },
+
+        onDeleteEmployee: function() {
+            var oView = this.getView();
+            var oModel = oView.getModel();
+            var aEmployees = oModel.getProperty("/employees");
+            var sEmpIdToDelete = oView.byId("deleteEmpIdInput").getValue();
+
+            var aUpdatedEmployees = aEmployees.filter(function(oEmployee) {
+                return oEmployee.empId !== sEmpIdToDelete;
+            });
+
+            oModel.setProperty("/employees", aUpdatedEmployees);
+
+            // Update employee count
+            this._updateEmployeeCount();
+
+            // Clear input field
+            oView.byId("deleteEmpIdInput").setValue("");
+
+            // Close the dialog
+            this.onCloseDeleteEmployeeDialog();
         }
     });
 });

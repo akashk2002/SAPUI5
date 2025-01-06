@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog contentWidth="400px" id="settings">
+        <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <Title text="Columns"/>
+                </contentMiddle>
+                <contentRight>
+                    <Link text="Reset" press="onResetColumns"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+
+        <content>
+            <VBox class="container" >
+                <SearchField id="searchField" width="70%" placeholder="Search"/>
+                <VBox id="vBoxContainer">
+                <CheckBox text="Select All" select="onSelectAllColumns"/>
+                <CheckBox text="Employee ID" id="EmployeeId"/>
+                <CheckBox text="Name" id="name"/>
+                <CheckBox text="Birth Date" id="birthDate"/>
+                <CheckBox text="Hire Date" id="hireDate"/>
+                <CheckBox text="Address" id="address"/>
+                <CheckBox text="City" id="city"/>
+                <CheckBox text="Country" id="country"/>
+                <CheckBox text="Title" id="title"/>
+                <CheckBox text="Region" id="region"/>
+                    
+                </VBox>
+                
+            </VBox>
+        </content>
+
+        <buttons>
+            <Button text="OK" press="onOK"/>
+            <Button text="Cancel" press="onCancel"/>
+        </buttons>
+
+    </Dialog>
+</core:FragmentDefinition>

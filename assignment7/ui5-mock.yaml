@@ -16,8 +16,10 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - path: /V2
+          - scp: true
+            path: /v2
             url: https://services.odata.org
+            destination: Northwind
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
@@ -34,7 +36,7 @@ server:
       configuration:
         mountPath: /
         services:
-          - urlPath: /V2/Northwind/Northwind.svc
+          - urlPath: /v2/northwind/northwind.svc
             metadataPath: ./webapp/localService/metadata.xml
             mockdataPath: ./webapp/localService/data
             generateMockData: true

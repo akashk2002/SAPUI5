@@ -1,7 +1,7 @@
 {
     "_version": "1.65.0",
     "sap.app": {
-        "id": "assignment7",
+        "id": "assignment8",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -13,7 +13,7 @@
         "sourceTemplate": {
             "id": "@sap/generator-fiori:basic",
             "version": "1.16.1",
-            "toolsId": "89698353-336d-4581-b35a-0ed1cdd98218"
+            "toolsId": "2de25a32-7d16-4659-99ed-42ee0690dbcd"
         },
         "dataSources": {
             "mainService": {
@@ -60,7 +60,7 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "assignment7.i18n.i18n"
+                    "bundleName": "assignment8.i18n.i18n"
                 }
             },
             "": {
@@ -84,9 +84,9 @@
                 "transition": "slide",
                 "type": "View",
                 "viewType": "XML",
-                "path": "assignment7.view",
+                "path": "assignment8.view",
                 "async": true,
-                "viewPath": "assignment7.view"
+                "viewPath": "assignment8.view"
             },
             "routes": [
                 {
@@ -105,7 +105,7 @@
             }
         },
         "rootView": {
-            "viewName": "assignment7.view.App",
+            "viewName": "assignment8.view.App",
             "type": "XML",
             "id": "App"
         }

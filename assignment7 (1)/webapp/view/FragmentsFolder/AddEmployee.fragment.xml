@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog title="Add Employee" contentWidth="400px">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Label text="Employee ID" />
+                <Input id="inputEmployeeID" />
+
+                <Label text="First Name" />
+                <Input id="inputFirstName" />
+
+                <Label text="Last Name" />
+                <Input id="inputLastName" />
+
+                <Label text="Birth Date" />
+                <DatePicker id="inputBirthDate" placeholder="e.g. 31 December 2024" displayFormat="dd MMM yyyy" />
+
+                <Label text="Hire Date" />
+                <DatePicker id="inputHireDate" placeholder="e.g. 31 December 2024" displayFormat="dd MMM yyyy" />
+
+
+                <Label text="Address" />
+                <Input id="inputAddress" value="{path: '/Address'}" />
+
+                <Label text="City" />
+                <Input id="inputCity" value="{path: '/City'}" />
+            </VBox>
+        </content>
+        <beginButton>
+            <Button text="Save" press=".onSaveEmployee" />
+        </beginButton>
+        <endButton>
+            <Button text="Close" press=".onCloseEmployeeDialog" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

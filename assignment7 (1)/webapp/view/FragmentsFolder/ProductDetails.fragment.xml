@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Popover id="productPopover" placement="Auto" title="Product Information">
+        <content>
+            <VBox width="200px" class="popover">
+            <VBox class="margin">
+                <Label text="Product Name:"/>
+                <Text id="productNameText" text="{productDetails>/ProductName}" />
+            </VBox>
+
+            <VBox class="margin">
+                <Label text="Product ID:"/>
+                <Text id="productIdText" text="{productDetails>/ProductID}" />
+            </VBox>
+
+            <VBox class="margin">
+                <Label text="Quantity per Unit:"/>
+                <Text id="quantityPerUnitText" text="{productDetails>/QuantityPerUnit}" />
+            </VBox>
+
+            <VBox class="margin">
+                <Label text="Unit Price:"/>
+                <Text id="unitPriceText" text="{productDetails>/UnitPrice}" />
+            </VBox>
+
+            <VBox class="margin">
+                <Label text="Units in Stock:"/>
+                <Text id="unitsInStockText" text="{productDetails>/UnitsInStock}" />
+            </VBox>
+
+            <VBox class="margin">
+                <Label text="Reorder Level:"/>
+                <Text id="reorderLevelText" text="{productDetails>/ReorderLevel}"/>
+            </VBox>
+
+            </VBox>
+        </content>
+    </Popover>
+</core:FragmentDefinition>

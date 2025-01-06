@@ -1,24 +1,95 @@
 <mvc:View controllerName="assignment7.controller.View1"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m"
-    xmlns:tnt="sap.tnt"
-    xmlns:l="sap.ui.layout">
-    <tnt:ToolPage>
-        <tnt:header>
-            <tnt:ToolHeader>
-                <Button icon="sap-icon://add-employee" text="User" press="handleResponsivePopoverPress" ariaHasPopup="Dialog" />
-                <Text text="Employee List" />
-                <ToolbarSpacer />
-                <Button text="A-Z Language" press="onLanguagePress" />
-                <Button icon="sap-icon://filter" text="Filter" press="onFilterPress" />
-            </tnt:ToolHeader>
-        </tnt:header>
-        <tnt:mainContents>
-            <Page>
-                <content>
-                    <!-- Your page content here -->
-                </content>
-            </Page>
-        </tnt:mainContents>
-    </tnt:ToolPage>
+    xmlns="sap.m">
+    <Page id="page" title="Employee Table">
+        <headerContent>
+            <Button text="Add Employee" press="onOpenAddEmployeeDialog"/>
+            <Button text="Delete Employee" press="onOpenDeleteEmployeeDialog"/>
+        </headerContent>
+        <content>
+            <VBox>
+                <Text id="employeeCount" text="Employee Count: 0" />
+                <Table id="employeeTable" items="{/employees}">
+                    <columns>
+                        <Column>
+                            <Text text="Emp ID"/>
+                        </Column>
+                        <Column>
+                            <Text text="Name"/>
+                        </Column>
+                        <Column>
+                            <Text text="Birth Date"/>
+                        </Column>
+                        <Column>
+                            <Text text="Hire Date"/>
+                        </Column>
+                        <Column>
+                            <Text text="Address"/>
+                        </Column>
+                        <Column>
+                            <Text text="City"/>
+                        </Column>
+                        <Column>
+                            <Text text="Country"/>
+                        </Column>
+                        <Column>
+                            <Text text="Religion"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{empId}"/>
+                                <Text text="{name}"/>
+                                <Text text="{birthDate}"/>
+                                <Text text="{hireDate}"/>
+                                <Text text="{address}"/>
+                                <Text text="{city}"/>
+                                <Text text="{country}"/>
+                                <Text text="{religion}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+        <Dialog id="addEmployeeDialog" title="Add Employee">
+            <VBox>
+                <Label text="Emp ID"/>
+                <Input id="empIdInput"/>
+                <Label text="Name"/>
+                <Input id="nameInput"/>
+                <Label text="Birth Date"/>
+                <DatePicker id="birthDateInput"/>
+                <Label text="Hire Date"/>
+                <DatePicker id="hireDateInput"/>
+                <Label text="Address"/>
+                <Input id="addressInput"/>
+                <Label text="City"/>
+                <Input id="cityInput"/>
+                <Label text="Country"/>
+                <Input id="countryInput"/>
+                <Label text="Religion"/>
+                <Input id="religionInput"/>
+            </VBox>
+            <endButton>
+                <Button text="Cancel" press="onCloseAddEmployeeDialog"/>
+            </endButton>
+            <beginButton>
+                <Button text="Add" press="onAddEmployee"/>
+            </beginButton>
+        </Dialog>
+        <Dialog id="deleteEmployeeDialog" title="Delete Employee">
+            <VBox>
+                <Label text="Emp ID"/>
+                <Input id="deleteEmpIdInput"/>
+            </VBox>
+            <endButton>
+                <Button text="Cancel" press="onCloseDeleteEmployeeDialog"/>
+            </endButton>
+            <beginButton>
+                <Button text="Delete" press="onDeleteEmployee"/>
+            </beginButton>
+        </Dialog>
+    </Page>
 </mvc:View>

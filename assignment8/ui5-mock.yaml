@@ -2,18 +2,24 @@
 
 specVersion: "3.1"
 metadata:
-  name: assignment7
+  name: assignment8
 type: application
-framework:
-  name: SAPUI5
-  version: 1.131.1
-  libraries:
-    - name: sap.m
-    - name: sap.ui.core
-    - name: sap.ushell
-    - name: themelib_sap_horizon
 server:
   customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+        backend:
+          - scp: true
+            path: /v2
+            url: https://services.odata.org
+            destination: Northwind
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
@@ -23,17 +29,8 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: assignment7
+        component: assignment8
         ui5Theme: sap_horizon
-    - name: fiori-tools-proxy
-      afterMiddleware: compression
-      configuration:
-        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
-        backend:
-          - scp: true
-            path: /v2
-            url: https://services.odata.org
-            destination: Northwind
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:

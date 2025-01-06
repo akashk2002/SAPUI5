@@ -1,0 +1,25 @@
+{
+    "employees": [
+        {
+            "empId": "E001",
+            "name": "John Doe",
+            "birthDate": "1990-01-01",
+            "hireDate": "2015-06-15",
+            "address": "123 Main St",
+            "city": "New York",
+            "country": "USA",
+            "religion": "Christianity"
+        },
+        {
+            "empId": "E002",
+            "name": "Jane Smith",
+            "birthDate": "1985-05-20",
+            "hireDate": "2018-09-01",
+            "address": "456 Elm St",
+            "city": "Los Angeles",
+            "country": "USA",
+            "religion": "Judaism"
+        }
+        
+    ]
+}

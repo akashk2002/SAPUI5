@@ -1,0 +1,38 @@
+<mvc:View
+    controllerName="assignment8.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m">
+    <FlexBox fitContainer="true" direction="Column">
+        <l:Splitter height="80%" width="100%">
+            
+                <Button width="100%" text="Content 1">
+                    <layoutData>
+                        <l:SplitterLayoutData size="300px" />
+                    </layoutData>
+                </Button>
+                <Button width="100%" text="Content 2">
+                    <layoutData>
+                        <l:SplitterLayoutData size="auto" />
+                    </layoutData>
+                </Button>
+                <Button width="100%" text="Content 3">
+                    <layoutData>
+                        <l:SplitterLayoutData size="100%" minSize="200px" />
+                    </layoutData>
+                </Button>
+            
+        </l:Splitter>
+        <Toolbar>
+            <ToolbarSpacer/>
+            <Button text="Button 1"/>
+            <ToolbarSpacer/>
+            <Button text="Button 2"/>
+            <ToolbarSpacer/>
+            <Button text="Button 3"/>
+            <ToolbarSpacer/>
+            <Button text="Button 4"/>
+            <ToolbarSpacer/>
+        </Toolbar>
+    </FlexBox>
+</mvc:View>

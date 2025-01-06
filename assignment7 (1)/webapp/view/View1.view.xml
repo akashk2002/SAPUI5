@@ -1,0 +1,83 @@
+<mvc:View controllerName="com.yash.assignment7.controller.View1"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="idPage" title="Employee Details">
+        <content>
+            <Toolbar>
+                <Button icon="sap-icon://add-employee" tooltip="Add" press="onUserPress" text="User" />
+                <Text text="Employee List"/>
+                <ToolbarSpacer/>
+                <Button tooltip="Language" press="onLanguagePress" text="A-z Language" />
+                <ComboBox selectedKey="Spacer">
+                    <core:Item key="Spacer" text="ToolBarSpacer" />
+                    <core:Item key="Button" text="Button" />
+                    <core:Item key="Footer" text="Footer" />
+                    <core:Item key="List" text="List" />
+                </ComboBox>
+                <Button icon="sap-icon://globe" tooltip="Version" press="onVersionPress" />
+            </Toolbar>
+        
+            <Toolbar>
+                <Text text="Total Records: {localHost>/value/length}" id="idTotalRecords"/>
+                <ToolbarSpacer/>
+                <Button icon="sap-icon://add-employee" tooltip="Add" press="onAddPress" text="Add Employee" />
+                <Button icon="sap-icon://delete" tooltip="Delete" press="onDeletePress" text="Delete Employee" enabled="false" id="deleteButton" />
+                <Button icon="sap-icon://sort" tooltip="Sort" press="onSortPress" />
+                <Button icon="sap-icon://action-settings" tooltip="Settings" press="onSettingsPress" />
+            </Toolbar>
+
+            <Table items="{localHost>/value}" id="table" mode="SingleSelect" selectionChange="onTableSelectionChange">
+                <columns>
+                    <Column>
+                        <Text text="Employee ID"/>
+                    </Column>
+                    <Column>
+                        <Text text="Name"/>
+                    </Column>
+                    <Column>
+                        <Text text="BirthDate"/>
+                    </Column>
+                    <Column>
+                        <Text text="HireDate"/>
+                    </Column>
+                    <Column>
+                        <Text text="Address"/>
+                    </Column>
+                    <Column>
+                        <Text text="City"/>
+                    </Column>
+                    <Column>
+                        <Text text="Country"/>
+                    </Column>
+                    <Column>
+                        <Text text="Title"/>
+                    </Column>
+                    <Column>
+                        <Text text="Region"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <Text text="{localHost>EmployeeID}"/>
+                        <Text text="{localHost>FirstName} {localHost>LastName}"/>
+                        <Text text="{path: 'localHost>BirthDate', formatter: '.formatDate'}"/>
+                        <Text text="{path: 'localHost>HireDate', formatter: '.formatDate'}"/>
+                        <Text text="{localHost>Address}"/>
+                        <Text text="{localHost>City}"/>
+                        <Text text="{localHost>Country}"/>
+                        <Text text="{localHost>Title}"/>
+                        <Text text="{localHost>Region}"/>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer/>
+                <Button text="Next" press="onNextToView2" type="Emphasized" enabled="false" id="nextButton"/>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>
