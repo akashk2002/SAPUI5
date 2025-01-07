@@ -3,14 +3,25 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:l="sap.ui.layout"
     xmlns="sap.m">
-    <FlexBox fitContainer="true" direction="Column">
-        <l:Splitter height="80%" width="100%">
-            
-                <Button width="100%" text="Content 1">
-                    <layoutData>
-                        <l:SplitterLayoutData size="300px" />
-                    </layoutData>
-                </Button>
+    <VBox height="100%" width="100%">
+        <l:Splitter height="100%" width="100%">
+            <l:contentAreas>
+                <VBox>
+                    <SearchField width="100%" placeholder="Search Employees" search="onSearch">
+                        <layoutData>
+                            <l:SplitterLayoutData size="300px" />
+                        </layoutData>
+                    </SearchField>
+                    <HBox>
+                        <Label id="countLabel" text="Count: 0" />
+                        <Button text="Sort by First Name" press="onSort" />
+                    </HBox>
+                    <ScrollContainer height="100%" width="100%" vertical="true">
+                        <List id="employeeList" items="{/Employees}">
+                            <StandardListItem title="{FirstName} {LastName}" description="{Title}" />
+                        </List>
+                    </ScrollContainer>
+                </VBox>
                 <Button width="100%" text="Content 2">
                     <layoutData>
                         <l:SplitterLayoutData size="auto" />
@@ -18,21 +29,21 @@
                 </Button>
                 <Button width="100%" text="Content 3">
                     <layoutData>
-                        <l:SplitterLayoutData size="100%" minSize="200px" />
+                        <l:SplitterLayoutData size="30%" minSize="200px" />
                     </layoutData>
                 </Button>
-            
+            </l:contentAreas>
         </l:Splitter>
         <Toolbar>
             <ToolbarSpacer/>
-            <Button text="Button 1"/>
+            <Button text="Employee"/>
             <ToolbarSpacer/>
-            <Button text="Button 2"/>
+            <Button text="Customer"/>
             <ToolbarSpacer/>
-            <Button text="Button 3"/>
+            <Button text="Product"/>
             <ToolbarSpacer/>
-            <Button text="Button 4"/>
+            <Button text="Supplier"/>
             <ToolbarSpacer/>
         </Toolbar>
-    </FlexBox>
+    </VBox>
 </mvc:View>

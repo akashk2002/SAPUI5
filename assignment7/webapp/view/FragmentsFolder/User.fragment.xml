@@ -20,11 +20,13 @@
                     <cells>
                         <Text text="1101332"/>
                         <Text text="Akash"/>
-                        <Text text="akash.kanyadhara@yash.com"/>
+                        <Text text="akash@yash.com"/>
                         <Text text="Trainee"/>
                     </cells>
                 </ColumnListItem>
+                <!-- Bind more items as needed -->
             </items>
         </Table>
+
     </Popover>
 </core:FragmentDefinition>

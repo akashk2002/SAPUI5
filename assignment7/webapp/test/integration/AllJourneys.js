@@ -7,7 +7,7 @@ sap.ui.define([
 
 	Opa5.extendConfig({
 		arrangements: new Startup(),
-		viewNamespace: "assignment7.view.",
+		viewNamespace: "com.yash.assignment7.view.",
 		autoWait: true
 	});
 });

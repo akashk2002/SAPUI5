@@ -1,10 +1,14 @@
-sap.ui.define([
-  "sap/ui/core/mvc/Controller"
-], (BaseController) => {
-  "use strict";
-
-  return BaseController.extend("assignment7.controller.App", {
-      onInit() {
-      }
-  });
-});
+sap.ui.define(
+    [
+        "sap/ui/core/mvc/Controller"
+    ],
+    function(BaseController) {
+      "use strict";
+  
+      return BaseController.extend("com.yash.assignment7.controller.App", {
+        onInit: function() {
+        }
+      });
+    }
+  );
+  

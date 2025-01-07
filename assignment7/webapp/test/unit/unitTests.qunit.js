@@ -1,10 +1,12 @@
 /* global QUnit */
-// https://api.qunitjs.com/config/autostart/
 QUnit.config.autostart = false;
 
-sap.ui.require([
-	"assignment7/test/unit/AllTests"
-], function (Controller) {
+sap.ui.getCore().attachInit(function () {
 	"use strict";
-	QUnit.start();
+
+	sap.ui.require([
+		"comyash/assignment7/test/unit/AllTests"
+	], function () {
+		QUnit.start();
+	});
 });

@@ -14,7 +14,7 @@ sap.ui.define([
 			// start the app UI component
 			this.iStartMyUIComponent({
 				componentConfig: {
-					name: "assignment7",
+					name: "com.yash.assignment7",
 					async: true
 				},
 				hash: oOptions.hash,

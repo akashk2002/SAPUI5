@@ -3,26 +3,25 @@
         <content>
             <VBox class="sapUiSmallMargin">
                 <Label text="Employee ID" />
-                <Input id="inputEmployeeID" />
+                <Input id="inputEmployeeID" required="true" />
 
                 <Label text="First Name" />
-                <Input id="inputFirstName" />
+                <Input id="inputFirstName" required="true" />
 
                 <Label text="Last Name" />
-                <Input id="inputLastName" />
+                <Input id="inputLastName" required="true" />
 
                 <Label text="Birth Date" />
-                <DatePicker id="inputBirthDate" placeholder="e.g. 31 December 2024" displayFormat="dd MMM yyyy" />
+                <DatePicker id="inputBirthDate" placeholder="e.g. 31 December 2024" displayFormat="dd MMM yyyy" required="true" />
 
                 <Label text="Hire Date" />
-                <DatePicker id="inputHireDate" placeholder="e.g. 31 December 2024" displayFormat="dd MMM yyyy" />
-
+                <DatePicker id="inputHireDate" placeholder="e.g. 31 December 2024" displayFormat="dd MMM yyyy" required="true" />
 
                 <Label text="Address" />
-                <Input id="inputAddress" value="{path: '/Address'}" />
+                <Input id="inputAddress" value="{path: '/Address'}" required="true" />
 
                 <Label text="City" />
-                <Input id="inputCity" value="{path: '/City'}" />
+                <Input id="inputCity" value="{path: '/City'}" required="true" />
             </VBox>
         </content>
         <beginButton>
