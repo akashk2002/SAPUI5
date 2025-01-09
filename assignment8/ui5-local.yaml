@@ -2,14 +2,19 @@
 
 specVersion: "3.1"
 metadata:
-  name: assignment8
+  name: com.yash.assignment8
 type: application
 framework:
   name: SAPUI5
-  version: 1.131.1
+  version: 1.122.0
   libraries:
     - name: sap.m
     - name: sap.ui.core
+    - name: sap.f
+    - name: sap.suite.ui.generic.template
+    - name: sap.ui.comp
+    - name: sap.ui.generic.app
+    - name: sap.ui.table
     - name: sap.ushell
     - name: themelib_sap_horizon
 server:
@@ -20,18 +25,12 @@ server:
         port: 35729
         path: webapp
         delay: 300
-    - name: fiori-tools-preview
-      afterMiddleware: fiori-tools-appreload
-      configuration:
-        component: assignment8
-        ui5Theme: sap_horizon
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
-          - scp: true
-            path: /v2
+          - path: /Northwind
             url: https://services.odata.org
             destination: Northwind
     - name: sap-fe-mockserver
@@ -39,8 +38,13 @@ server:
       configuration:
         mountPath: /
         services:
-          - urlPath: /v2/northwind/northwind.svc
+          - urlPath: /Northwind/Northwind.svc
             metadataPath: ./webapp/localService/metadata.xml
             mockdataPath: ./webapp/localService/data
             generateMockData: true
         annotations: []
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: com.yash.assignment8
+        ui5Theme: sap_horizon

@@ -1,0 +1,68 @@
+<mvc:View controllerName="com.yash.assignment8.controller.Employee"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:l="sap.ui.layout"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Toolbar>
+                <ToolbarSpacer/>
+                <Button tooltip="Language" press="Language" text="A-z Language" />
+                <Button icon="sap-icon://globe" tooltip="Version" press="Version" />
+            </Toolbar>
+
+            <l:Splitter id="mainSplitter" height="500px" width="100%">
+                <VBox width="100%" class="container">
+                    <Title text="Employee" class="font"/>
+                    <SearchField placeholder="Search" search="onSearch"/>
+                    <Toolbar>
+                        <Text text="Total Employees ()" id="employeesCount" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://sort" tooltip="Sort" press="onSortPress" />
+                    </Toolbar>
+                    <List items="{/Employees}" mode="SingleSelect" id="list" selectionChange="EmployeeSelect">
+                        <StandardListItem title="{EmployeeID}" description="{FirstName} {LastName}" />
+                    </List>
+                </VBox>
+
+                <VBox width="100%" class="container">
+                    <Title text="Orders" class="font"/>
+                    <SearchField placeholder="Search" search="onSearch"/>
+                    <Toolbar>
+                        <Text text="Total Orders ({/OrdersCount})" id="ordersCount" visible="false"/>
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://sort" tooltip="Sort" press="onSortPress" />
+                    </Toolbar>
+                    <List items="{OrderData>/Orders}" mode="SingleSelect" selectionChange="OrderSelect">
+                        <StandardListItem title="{OrderData>OrderID}" description="{OrderData>CustomerID}" />
+                    </List>
+                </VBox>
+
+                <VBox width="100%" class="container">
+                    <Title text="Product Details" class="font"/>
+                    <SearchField placeholder="Search" search="onSearch"/>
+                    <Toolbar>
+                        <Text text="Total Products ({/ProductsCount})" id="productsCount" visible="false"/>
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://sort" tooltip="Sort" press="onSortPress" />
+                    </Toolbar>
+                    <List items="{productData>/Order_Details}" mode="SingleSelect">
+                        <StandardListItem title="{productData>ProductID}" description="{productData>UnitPrice}" />
+                    </List>
+                </VBox>
+            </l:Splitter>
+        </content>
+
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button text="Employee"  press="EmployeeBtn"/>
+                <ToolbarSpacer/>
+                <Button type='Emphasized' text="Customer" press="CustomerBtn"/>
+                <ToolbarSpacer/>
+                <Button type='Emphasized' text="Product" press="ProductBtn"/>
+                <ToolbarSpacer/>
+                <Button type='Emphasized' text="Supplier" press="SupplierBtn"/>
+                <ToolbarSpacer/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

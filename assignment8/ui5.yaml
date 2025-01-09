@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: assignment8
+  name: com.yash.assignment8
 type: application
 server:
   customMiddleware:
@@ -16,8 +16,7 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - scp: true
-            path: /v2
+          - path: /Northwind
             url: https://services.odata.org
             destination: Northwind
     - name: fiori-tools-appreload
@@ -29,5 +28,5 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: assignment8
+        component: com.yash.assignment8
         ui5Theme: sap_horizon

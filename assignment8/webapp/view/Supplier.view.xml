@@ -1,0 +1,78 @@
+<mvc:View
+	controllerName="com.yash.assignment8.controller.Supplier"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+    <Page id="page" title="Supplier Details">
+
+	<content>
+
+	<Toolbar>
+        <Button tooltip="Back" press="Backbtn" text="Back"  type="Emphasized"/>
+        <ToolbarSpacer/>
+        <Button tooltip="Language" press="Language" text="A-z Language" />
+        <Button icon="sap-icon://globe" tooltip="Version" press="Version" />
+    </Toolbar>
+
+	<l:VerticalLayout class="sapUiContentPadding" width="100%">
+		<Button text="Open Supplier Dialog" press=".onSelectDialogPress" class="sapUiSmallMarginBottom" ariaHasPopup="Dialog" type="Emphasized"/>
+	</l:VerticalLayout>
+
+    <Table items="{selectedSuppliers>/Suppliers}" id="table" mode="Delete"  growing="true" growingThreshold="10" delete="onDelete">
+            <columns>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Supplier ID"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Company Name"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Contact Name"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Contact Title"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Address"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="City"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Country"/>
+                </Column>
+                
+            </columns>
+ 
+            <items>
+                <ColumnListItem>
+                    <Text text="{selectedSuppliers>SupplierID}"/>
+                    <Text text="{selectedSuppliers>CompanyName}"/>
+                    <Text text="{selectedSuppliers>ContactName}"/>
+                    <Text text="{selectedSuppliers>ContactTitle}"/>
+                    <Text text="{selectedSuppliers>Address}"/>
+                    <Text text="{selectedSuppliers>City}"/>
+                    <Text text="{selectedSuppliers>Country}"/>
+                </ColumnListItem>
+            </items>
+
+            </Table>
+
+	</content>
+	<footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button type='Emphasized' text="Employee"  press="EmployeeBtn"/>
+                <ToolbarSpacer/>
+                <Button type='Emphasized' text="Customer" press="CustomerBtn"/>
+                <ToolbarSpacer/>
+                <Button type='Emphasized' text="Product" press="ProductBtn"/>
+                <ToolbarSpacer/>
+                <Button text="Supplier" press="SupplierBtn"/>
+                <ToolbarSpacer/>
+            </OverflowToolbar>
+        </footer>
+		
+    </Page>
+</mvc:View>

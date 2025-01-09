@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"assignment8/controller/View1.controller"
+	"comyash/assignment8/controller/View1.controller"
 ], function (Controller) {
 	"use strict";
 

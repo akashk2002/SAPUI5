@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns="sap.m"
+                         xmlns:core="sap.ui.core">
+    <Dialog  contentWidth="auto" id="supplierDialog" title="Select Product" >
+    <content>
+    <VBox class="container">
+    <SearchField />
+    <Text text="Selected: " id="selectedCount"/>
+        <Table items="{/Suppliers}" id="tableFrag" mode="MultiSelect" selectionChange="onRowsSelection">
+            <columns>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Supplier ID"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Company Name"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Contact Name"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Contact Title"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Address"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="City"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Country"/>
+                </Column>
+                
+            </columns>
+ 
+            <items>
+                <ColumnListItem>
+                    <Text text="{SupplierID}"/>
+                    <Text text="{CompanyName}"/>
+                    <Text text="{ContactName}"/>
+                    <Text text="{ContactTitle}"/>
+                    <Text text="{Address}"/>
+                    <Text text="{City}"/>
+                    <Text text="{Country}"/>
+                </ColumnListItem>
+            </items>
+
+            </Table>
+            </VBox>
+    </content>
+            <buttons>
+                <Button text="Select" press="onSelectPress"/>
+                <Button text="Cancel" press="onCancelPress"/>
+            </buttons>
+        
+    </Dialog>
+</core:FragmentDefinition>

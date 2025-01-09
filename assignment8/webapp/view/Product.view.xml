@@ -1,0 +1,60 @@
+<mvc:View controllerName="com.yash.assignment8.controller.Product"
+    xmlns:core="sap.ui.core"   xmlns:l="sap.ui.layout" xmlns:f="sap.f" xmlns:cards="sap.f.cards"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="Product Details">
+        <content>
+
+        <Toolbar>
+                <Button tooltip="Back" press="Backbtn" text="Back"  type="Emphasized"/>
+                <ToolbarSpacer/>
+                <Button tooltip="Language" press="Language" text="A-z Language" />
+                <Button icon="sap-icon://globe" tooltip="Version" press="Version" />
+        </Toolbar>
+        
+        <f:GridContainer id="grid1" class="sapUiSmallMargin" width="100%" snapToRow="true" items="{/Products}">
+               
+                <f:Card height="auto"   >
+               
+                    <f:layoutData>
+                        <f:GridContainerItemLayoutData minRows="1" columns="4"  />
+                    </f:layoutData>
+                        <f:content>
+                         <CustomListItem press="onProductDetails" type="Active">
+                            <VBox class="cards" height="auto"    >
+                                <HBox id="productDetails" >
+                                    <Label text="Product Name: " />
+                                    <Text text="{ProductName}" />
+                                </HBox>
+                                <HBox>
+                                    <Label text="Quantity Per Unit: " />
+                                    <Text text="{QuantityPerUnit}" />
+                                </HBox>
+                                <HBox>
+                                    <Label text="Unit Price: " />
+                                    <Text text="{UnitPrice}" />
+                                </HBox>
+                            </VBox>
+                            </CustomListItem>
+                        </f:content>  
+                </f:Card>
+            </f:GridContainer>
+        
+        </content>
+        
+      <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button type='Emphasized' text="Employee"  press="EmployeeBtn"/>
+                <ToolbarSpacer/>
+                <Button type='Emphasized' text="Customer" press="CustomerBtn"/>
+                <ToolbarSpacer/>
+                <Button text="Product" press="ProductBtn"/>
+                <ToolbarSpacer/>
+                <Button type='Emphasized' text="Supplier" press="SupplierBtn"/>
+                <ToolbarSpacer/>
+            </OverflowToolbar>
+        </footer>
+
+    </Page>
+</mvc:View>

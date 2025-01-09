@@ -1,113 +1,166 @@
 {
-    "_version": "1.65.0",
-    "sap.app": {
-        "id": "assignment8",
-        "type": "application",
-        "i18n": "i18n/i18n.properties",
-        "applicationVersion": {
-            "version": "0.0.1"
-        },
-        "title": "{{appTitle}}",
-        "description": "{{appDescription}}",
-        "resources": "resources.json",
-        "sourceTemplate": {
-            "id": "@sap/generator-fiori:basic",
-            "version": "1.16.1",
-            "toolsId": "2de25a32-7d16-4659-99ed-42ee0690dbcd"
-        },
-        "dataSources": {
-            "mainService": {
-                "uri": "/v2/northwind/northwind.svc/",
-                "type": "OData",
-                "settings": {
-                    "annotations": [],
-                    "localUri": "localService/metadata.xml",
-                    "odataVersion": "2.0"
-                }
-            }
-        }
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "com.yash.assignment8",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
     },
-    "sap.ui": {
-        "technology": "UI5",
-        "icons": {
-            "icon": "",
-            "favIcon": "",
-            "phone": "",
-            "phone@2": "",
-            "tablet": "",
-            "tablet@2": ""
-        },
-        "deviceTypes": {
-            "desktop": true,
-            "tablet": true,
-            "phone": true
-        }
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.14.1",
+      "toolsId": "6a145807-7e86-4356-bfe6-71c122b33e8f"
     },
-    "sap.ui5": {
-        "flexEnabled": false,
-        "dependencies": {
-            "minUI5Version": "1.131.1",
-            "libs": {
-                "sap.m": {},
-                "sap.ui.core": {}
-            }
-        },
-        "contentDensities": {
-            "compact": true,
-            "cozy": true
-        },
-        "models": {
-            "i18n": {
-                "type": "sap.ui.model.resource.ResourceModel",
-                "settings": {
-                    "bundleName": "assignment8.i18n.i18n"
-                }
-            },
-            "": {
-                "dataSource": "mainService",
-                "preload": true,
-                "settings": {}
-            }
-        },
-        "resources": {
-            "css": [
-                {
-                    "uri": "css/style.css"
-                }
-            ]
-        },
-        "routing": {
-            "config": {
-                "routerClass": "sap.m.routing.Router",
-                "controlAggregation": "pages",
-                "controlId": "app",
-                "transition": "slide",
-                "type": "View",
-                "viewType": "XML",
-                "path": "assignment8.view",
-                "async": true,
-                "viewPath": "assignment8.view"
-            },
-            "routes": [
-                {
-                    "name": "RouteView1",
-                    "pattern": ":?query:",
-                    "target": [
-                        "TargetView1"
-                    ]
-                }
-            ],
-            "targets": {
-                "TargetView1": {
-                    "id": "View1",
-                    "name": "View1"
-                }
-            }
-        },
-        "rootView": {
-            "viewName": "assignment8.view.App",
-            "type": "XML",
-            "id": "App"
+    "dataSources": {
+      "mainService": {
+        "uri": "/Northwind/Northwind.svc/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
         }
+      }
     }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.122.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.yash.assignment8.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "com.yash.assignment8.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "Employee",
+          "pattern": "",
+          "target": [
+            "TargetView1"
+          ]
+        },
+
+        {
+          "name": "Customer",
+          "pattern": "onNavToView2",
+          "target": [
+            "TargetView2"
+          ]
+        },
+
+        {
+          "name": "Product",
+          "pattern": "onNavToView3",
+          "target": [
+            "TargetView3"
+          ]
+        },
+
+        {
+          "name": "Supplier",
+          "pattern": "onNavToView4",
+          "target": [
+            "TargetView4"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetView1": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Employee",
+          "viewName": "Employee"
+        },
+        "TargetView2": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Customer",
+          "viewName": "Customer"
+        },
+        "TargetView3": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Product",
+          "viewName": "Product"
+        },
+        "TargetView4": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Supplier",
+          "viewName": "Supplier"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.yash.assignment8.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
 }

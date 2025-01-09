@@ -1,0 +1,97 @@
+<mvc:View controllerName="com.yash.assignment8.controller.Customer"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"  xmlns:l="sap.ui.layout"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+
+        <Toolbar>
+                <Button tooltip="Back" press="Backbtn" text="Back"  type="Emphasized"/>
+                <ToolbarSpacer/>
+                <Button tooltip="Language" press="Language" text="A-z Language" />
+                <Button icon="sap-icon://globe" tooltip="Version" press="Version" />
+        </Toolbar>
+        
+        <FlexBox direction="Row" alignItems="Center" justifyContent="SpaceBetween" width="100%">   
+            <HBox class="attributes-left">
+                <Image src="https://cdn-icons-png.flaticon.com/512/622/622848.png" alt="Employee Image" width="100px" height="100px" class="image" visible="false" id="img"/>
+                <ObjectHeader id="objectHeader" visible="false">
+                    <attributes>
+                        <ObjectAttribute id="custId"/>
+                        <ObjectAttribute id="companyName"/>
+                    </attributes>
+                </ObjectHeader>
+            </HBox>
+            <VBox class="statuses-right">
+                <ObjectStatus id="contactName"/>
+                <ObjectStatus id="contactTitle"/>
+            </VBox>
+        </FlexBox>
+
+
+
+        <Toolbar>
+                <Title text="Customer Details"/>
+                <ToolbarSpacer/>
+                <Text text="Total Customers: ({/CustomersCount})" id="customersCount" />
+                <Button icon="sap-icon://sort" tooltip="Sort" press="onSortPress" />
+        </Toolbar>
+
+        <Table items="{/Customers}" id="table" mode="SingleSelect" selectionChange="onTableSelectionChange">
+            <columns>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Customer ID"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Company Name"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Contact Name"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Contact Title"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Address"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="City"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Country"/>
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Postal Code"/>
+                </Column>
+            </columns>
+ 
+            <items>
+                <ColumnListItem>
+                    <Text text="{CustomerID}"/>
+                    <Text text="{CompanyName}"/>
+                    <Text text="{ContactName}"/>
+                    <Text text="{ContactTitle}"/>
+                    <Text text="{Address}"/>
+                    <Text text="{City}"/>
+                    <Text text="{Country}"/>
+                    <Text text="{PostalCode}"/>
+                </ColumnListItem>
+            </items>
+
+            </Table>
+        </content>
+       <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button type='Emphasized' text="Employee"  press="EmployeeBtn"/>
+                <ToolbarSpacer/>
+                <Button text="Customer" press="CustomerBtn"/>
+                <ToolbarSpacer/>
+                <Button type='Emphasized' text="Product" press="ProductBtn"/>
+                <ToolbarSpacer/>
+                <Button type='Emphasized' text="Supplier" press="SupplierBtn"/>
+                <ToolbarSpacer/>
+            </OverflowToolbar>
+        </footer>
+
+    </Page>
+</mvc:View>

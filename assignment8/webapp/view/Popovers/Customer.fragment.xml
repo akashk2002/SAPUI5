@@ -1,0 +1,46 @@
+<core:FragmentDefinition xmlns="sap.m"
+                         xmlns:core="sap.ui.core">
+    <Dialog  contentWidth="300px" id="sortingDialog">
+
+   
+        <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <Title text="Sort"/>
+                </contentMiddle>
+                <contentRight>
+                    <Link text="Reset" press="onResetColumns"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+        
+        <content>
+        <VBox class="container">
+            <Title text="Sort Order"/>
+            <RadioButtonGroup id="sortOrder">
+                <buttons>
+                    <RadioButton text="Ascending" />
+                    <RadioButton text="Descending" />
+                </buttons>
+            </RadioButtonGroup>
+
+
+            <Title text="Sort By"/>
+            <RadioButtonGroup id="sortBy">
+                <buttons>
+                    <RadioButton text="Customer ID" id="customerId"/>
+                    <RadioButton text="Company Name" id="comName"/>
+                    <RadioButton text="Contact Name" id="conName"/>
+                    <RadioButton text="City" id="city"/>
+
+                </buttons>
+            </RadioButtonGroup>
+
+        </VBox>
+        </content>
+        <buttons>
+            <Button text="OK" press="onOKCusSort"/>
+            <Button text="Cancel" press="onCancelCusSort"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>
