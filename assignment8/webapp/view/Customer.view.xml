@@ -1,6 +1,9 @@
 <mvc:View controllerName="com.yash.assignment8.controller.Customer"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"  xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"  
+    xmlns:l="sap.ui.layout"
     xmlns="sap.m">
+
     <Page id="page" title="{i18n>title}">
         <content>
 
@@ -13,7 +16,7 @@
         
         <FlexBox direction="Row" alignItems="Center" justifyContent="SpaceBetween" width="100%">   
             <HBox class="attributes-left">
-                <Image src="https://cdn-icons-png.flaticon.com/512/622/622848.png" alt="Employee Image" width="100px" height="100px" class="image" visible="false" id="img"/>
+                <Image src="https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png" alt="Employee Image" width="100px" height="100px" class="image" visible="false" id="img"/>
                 <ObjectHeader id="objectHeader" visible="false">
                     <attributes>
                         <ObjectAttribute id="custId"/>
