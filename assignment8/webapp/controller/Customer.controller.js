@@ -1,3 +1,4 @@
+
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
@@ -6,36 +7,41 @@ sap.ui.define([
 function (Controller, JSONModel, Fragment) {
     "use strict";
 
-    return Controller.extend("com.yash.assignment8.controller.View2", {
+    return Controller.extend("com.yash.assignment8.controller.Customer", {
         onInit: function (oEvent) {
-
+            // Initialize the router for navigation
             this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             
-            this.fetchCustomersCount()
+            // Fetch the count of customers
+            this.fetchCustomersCount();
         },
 
         fetchCustomersCount: function () {
+            // Fetch the count of customers from the model
             var oModel = this.getOwnerComponent().getModel(); 
             oModel.read("/Customers/$count", {
                 success: (data) => {
                     var CustomersCount = parseInt(data);
                     console.log("Cus count:", CustomersCount);
+                    // Update the UI with the customers count
                     this.getView().byId("customersCount").setText(" Total Customers: ( " + CustomersCount + " )");
                 },
                 error: (error) => {
                     console.error("Error fetching categories count:", error);
                 }
-            })
+            });
         },
 
         async onSortPress() {
+            // Open the sort dialog
             this._oDialog ??= await this.loadFragment({
                 name: "com.yash.assignment8.view.Popovers.Customer"
             });
-            this._oDialog.open()
+            this._oDialog.open();
         },
 
         onOKCusSort: function() {
+            // Handle sorting confirmation
             var sortOrder = this.byId("sortOrder").getSelectedButton().getText();
             var sortBy = this.byId("sortBy").getSelectedButton().getId();
         
@@ -74,10 +80,12 @@ function (Controller, JSONModel, Fragment) {
         },
         
         onCancelCusSort: function() {
+            // Handle sorting cancellation
             this._oDialog.close();
         },
 
         Language: function(oEvent) {
+            // Open the language selection popover
             var oButton = oEvent.getSource();
             if (!this._oPopover) {
                 Fragment.load({
@@ -95,6 +103,7 @@ function (Controller, JSONModel, Fragment) {
         },
 
         async Version() {
+            // Open the version dialog
             if (!this._oDialogVer) {
                 this._oDialogVer = await this.loadFragment({
                     name: "com.yash.assignment8.view.Popovers.VersionID"
@@ -111,21 +120,25 @@ function (Controller, JSONModel, Fragment) {
         },
 
         onOKVersion: function() {
+            // Handle version dialog confirmation
             this._oDialogVer.close();
         },
 
         Backbtn: function() {
-            this.oRouter.navTo("RouteView1")
+            // Navigate back to the Employee view
+            this.oRouter.navTo("Employee");
         },
 
         onTableSelectionChange: function (oEvent) {
-            this.byId("objectHeader").setVisible(true)
-            this.byId("img").setVisible(true)
+            // Handle table selection change
+            this.byId("objectHeader").setVisible(true);
+            this.byId("img").setVisible(true);
             var oSelectedItem = oEvent.getParameter("listItem");
             if (oSelectedItem) {
                 var oBindingContext = oSelectedItem.getBindingContext();
                 var oData = oBindingContext.getObject();
 
+                // Update the UI with the selected customer details
                 this.getView().byId("custId").setText("Customer ID:  " +  oData.CustomerID);
                 this.getView().byId("companyName").setText("Company Name:  " + oData.CompanyName);
                 this.getView().byId("contactName").setText("Contact Name:  " + oData.ContactName);
@@ -134,21 +147,23 @@ function (Controller, JSONModel, Fragment) {
         },
 
         EmployeeBtn: function() {
-            this.oRouter.navTo("Employee")
+            // Navigate to the Employee view
+            this.oRouter.navTo("Employee");
         },
 
         CustomerBtn: function() {
-            this.oRouter.navTo("Customer")
+            // Navigate to the Customer view
+            this.oRouter.navTo("Customer");
         },
 
         ProductBtn: function() {
-            this.oRouter.navTo("Product")
+            // Navigate to the Product view
+            this.oRouter.navTo("Product");
         },
 
         SupplierBtn: function() {
-            this.oRouter.navTo("Supplier")
+            // Navigate to the Supplier view
+            this.oRouter.navTo("Supplier");
         },
-
-
     });
 });

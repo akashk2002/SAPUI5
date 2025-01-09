@@ -1,3 +1,4 @@
+
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
@@ -8,12 +9,12 @@ function (Controller, JSONModel, Fragment) {
 
     return Controller.extend("com.yash.assignment8.controller.Product", {
         onInit: function (oEvent) {
-
+            // Initialize the router for navigation
             this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            
         },
 
         Language: function(oEvent) {
+            // Open the language selection popover
             var oButton = oEvent.getSource();
             if (!this._oPopover) {
                 Fragment.load({
@@ -31,6 +32,7 @@ function (Controller, JSONModel, Fragment) {
         },
 
         async Version() {
+            // Open the version dialog
             if (!this._oDialogVer) {
                 this._oDialogVer = await this.loadFragment({
                     name: "com.yash.assignment8.view.Popovers.VersionID"
@@ -47,11 +49,13 @@ function (Controller, JSONModel, Fragment) {
         },
 
         onOKVersion: function() {
+            // Handle version dialog confirmation
             this._oDialogVer.close();
         },
 
         Backbtn: function() {
-            this.oRouter.navTo("RouteView2")
+            // Navigate back to the previous view
+            this.oRouter.navTo("RouteView2");
         },
 
         onProductDetails: function (oEvent) {
@@ -84,28 +88,29 @@ function (Controller, JSONModel, Fragment) {
         },
 
         _openPopover: function (oItem) {
+            // Set the model for the popover and open it
             this._oPopover.setModel(new sap.ui.model.json.JSONModel(this.getView().getModel().getProperty(`/Products(${oItem.getBindingContext().getProperty("ProductID")})`)), "productDetails");
-
             this._oPopover.openBy(oItem);
         },
         
         EmployeeBtn: function() {
-            this.oRouter.navTo("Employee")
+            // Navigate to the Employee view
+            this.oRouter.navTo("Employee");
         },
 
         CustomerBtn: function() {
-            this.oRouter.navTo("Customer")
+            // Navigate to the Customer view
+            this.oRouter.navTo("Customer");
         },
 
         ProductBtn: function() {
-            this.oRouter.navTo("Product")
+            // Navigate to the Product view
+            this.oRouter.navTo("Product");
         },
 
         SupplierBtn: function() {
-            this.oRouter.navTo("Supplier")
+            // Navigate to the Supplier view
+            this.oRouter.navTo("Supplier");
         },
-
-
-        
     });
 });

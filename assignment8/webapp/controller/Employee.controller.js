@@ -1,3 +1,4 @@
+
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
@@ -8,34 +9,38 @@ function (Controller, JSONModel, Fragment) {
 
     return Controller.extend("com.yash.assignment8.controller.Employee", {
         onInit: function (oEvent) {
-            
+            // Initialize the controller and fetch the employees count
             this.fetchEmployeessCount();
 
+            // Get the router for navigation
             this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            
         },
 
         fetchEmployeessCount: function () {
+            // Fetch the count of employees from the model
             var oModel = this.getOwnerComponent().getModel(); 
             oModel.read("/Employees/$count", {
                 success: (data) => {
                     var EmployeesCount = parseInt(data);
                     console.log("Emp count:", EmployeesCount);
+                    // Update the UI with the employees count
                     this.getView().byId("employeesCount").setText(" Total Employees ( " + EmployeesCount + " )");
                 },
                 error: (error) => {
                     console.error("Error fetching categories count:", error);
                 }
-            })
+            });
         },
 
         EmployeeSelect: function (oEvent) {
+            // Handle employee selection
             var oSelectedItem = oEvent.getParameter("listItem");
             var sEmployeeID = oSelectedItem.getTitle();
-            console.log("emp id: ", sEmployeeID)
+            console.log("emp id: ", sEmployeeID);
             var oModel = this.getOwnerComponent().getModel();
             var sPath = "/Employees(" + sEmployeeID + ")/Orders"; // Adjusted to fetch orders directly
 
+            // Fetch orders for the selected employee
             oModel.read(sPath, {
                 success: (oData) => {
                     var oOrderModel = new JSONModel({
@@ -49,27 +54,30 @@ function (Controller, JSONModel, Fragment) {
                 }
             });
 
-            this.byId("ordersCount").setVisible(true)
-            var sPath1 = "/Employees(" + sEmployeeID + ")/Orders/$count"
+            this.byId("ordersCount").setVisible(true);
+            var sPath1 = "/Employees(" + sEmployeeID + ")/Orders/$count";
             oModel.read(sPath1, {
                 success: (data) => {
                     var OrdersCount = parseInt(data);
                     console.log("Emp count:", OrdersCount);
+                    // Update the UI with the orders count
                     this.getView().byId("ordersCount").setText(" Total Orders ( " + OrdersCount + " )");
                 },
                 error: (error) => {
                     console.error("Error fetching categories count:", error);
                 }
-            })
+            });
         },
 
         OrderSelect: function (oEvent) {
+            // Handle order selection
             var oSelectedItem = oEvent.getParameter("listItem");
             var sOrderID = oSelectedItem.getTitle();
-            console.log("emp id: ", sOrderID)
+            console.log("emp id: ", sOrderID);
             var oModel = this.getOwnerComponent().getModel();
             var sPath = "/Orders(" + sOrderID + ")/Order_Details"; // Adjusted to fetch orders directly
 
+            // Fetch order details for the selected order
             oModel.read(sPath, {
                 success: (oData) => {
                     var oProductModel = new JSONModel({
@@ -83,28 +91,31 @@ function (Controller, JSONModel, Fragment) {
                 }
             });
 
-            this.byId("productsCount").setVisible(true)
-            var sPath1 = "/Orders(" + sOrderID + ")/Order_Details/$count"
+            this.byId("productsCount").setVisible(true);
+            var sPath1 = "/Orders(" + sOrderID + ")/Order_Details/$count";
             oModel.read(sPath1, {
                 success: (data) => {
                     var PoductsCount = parseInt(data);
                     console.log("Proct count:", PoductsCount);
+                    // Update the UI with the products count
                     this.getView().byId("productsCount").setText(" Total Products ( " + PoductsCount + " )");
                 },
                 error: (error) => {
                     console.error("Error fetching categories count:", error);
                 }
-            })
+            });
         },
 
         async onSortPress() {
+            // Open the sort dialog
             this._oDialog ??= await this.loadFragment({
                 name: "com.yash.assignment8.view.Popovers.SortFragment"
             });
-            this._oDialog.open()
+            this._oDialog.open();
         },
 
         onOKSort: function() {
+            // Handle sorting confirmation
             var sortOrder = this.byId("sortOrder").getSelectedButton().getText();
             var sortBy = this.byId("sortBy").getSelectedButton().getId();
         
@@ -140,10 +151,12 @@ function (Controller, JSONModel, Fragment) {
         },
         
         onCancelSort: function() {
+            // Handle sorting cancellation
             this._oDialog.close();
         },
 
         Language: function(oEvent) {
+            // Open the language selection popover
             var oButton = oEvent.getSource();
             if (!this._oPopover) {
                 Fragment.load({
@@ -161,6 +174,7 @@ function (Controller, JSONModel, Fragment) {
         },
 
         async Version() {
+            // Open the version dialog
             if (!this._oDialogVer) {
                 this._oDialogVer = await this.loadFragment({
                     name: "com.yash.assignment8.view.Popovers.VersionID"
@@ -177,10 +191,12 @@ function (Controller, JSONModel, Fragment) {
         },
 
         onOKVersion: function() {
+            // Handle version dialog confirmation
             this._oDialogVer.close();
         },
 
         onSearch: function (oEvent) {
+            // Handle search functionality
             var sQuery = oEvent.getParameter("query");
             var oList = this.byId("list");
             var oBinding = oList.getBinding("items");
@@ -199,22 +215,23 @@ function (Controller, JSONModel, Fragment) {
         },
         
         EmployeeBtn: function() {
-            this.oRouter.navTo("Employee")
+            // Navigate to the Employee view
+            this.oRouter.navTo("Employee");
         },
 
         CustomerBtn: function() {
-            this.oRouter.navTo("Customer")
+            // Navigate to the Customer view
+            this.oRouter.navTo("Customer");
         },
 
         ProductBtn: function() {
-            this.oRouter.navTo("Product")
+            // Navigate to the Product view
+            this.oRouter.navTo("Product");
         },
 
         SupplierBtn: function() {
-            this.oRouter.navTo("Supplier")
+            // Navigate to the Supplier view
+            this.oRouter.navTo("Supplier");
         },
-
-
-
     });
 });

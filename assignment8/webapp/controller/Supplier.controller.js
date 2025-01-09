@@ -1,3 +1,4 @@
+
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
@@ -8,12 +9,12 @@ function (Controller, JSONModel, Fragment) {
 
     return Controller.extend("com.yash.assignment8.controller.Supplier", {
         onInit: function (oEvent) {
-
+            // Initialize the router for navigation
             this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            
         },
 
         Language: function(oEvent) {
+            // Open the language selection popover
             var oButton = oEvent.getSource();
             if (!this._oPopover) {
                 Fragment.load({
@@ -31,6 +32,7 @@ function (Controller, JSONModel, Fragment) {
         },
 
         async Version() {
+            // Open the version dialog
             if (!this._oDialogVer) {
                 this._oDialogVer = await this.loadFragment({
                     name: "com.yash.assignment8.view.Popovers.VersionID"
@@ -47,30 +49,35 @@ function (Controller, JSONModel, Fragment) {
         },
 
         onOKVersion: function() {
+            // Handle version dialog confirmation
             this._oDialogVer.close();
         },
 
         Backbtn: function() {
-            this.oRouter.navTo("RouteView3")
+            // Navigate back to the previous view
+            this.oRouter.navTo("RouteView3");
         },
 
         async onSelectDialogPress() {
+            // Open the supplier selection dialog
             this._oDialog ??= await this.loadFragment({
                 name: "com.yash.assignment8.view.Popovers.SupplierInfo"
             });
-            this._oDialog.open()
+            this._oDialog.open();
         },
 
         onRowsSelection: function () {
+            // Handle row selection in the table
             var oTable = this.byId("tableFrag");
             var aSelectedItems = oTable.getSelectedItems();
         
-           
+            // Update the selected count text
             var sSelectedText = "Selected: " + aSelectedItems.length;
             this.byId("selectedCount").setText(sSelectedText);
         },
 
         onSelectPress: function () {
+            // Handle the selection of suppliers
             var oTableFrag = this.byId("tableFrag");
             var aSelectedItems = oTableFrag.getSelectedItems();
             var oModel = this.getView().getModel("selectedSuppliers");
@@ -100,12 +107,13 @@ function (Controller, JSONModel, Fragment) {
             this._oDialog.close();
         },
         
-        
         onCancelPress: function() {
+            // Handle the cancellation of the selection dialog
             this._oDialog.close();
         },
         
         onDelete: function (oEvent) {
+            // Handle the deletion of a selected supplier
             var oTable = oEvent.getSource();
             var oItem = oEvent.getParameter("listItem");
             var sPath = oItem.getBindingContextPath();
@@ -139,28 +147,25 @@ function (Controller, JSONModel, Fragment) {
                 }
             );
         },
-        
-
-
-
 
         EmployeeBtn: function() {
-            this.oRouter.navTo("Employee")
+            // Navigate to the Employee view
+            this.oRouter.navTo("Employee");
         },
 
         CustomerBtn: function() {
-            this.oRouter.navTo("Customer")
+            // Navigate to the Customer view
+            this.oRouter.navTo("Customer");
         },
 
         ProductBtn: function() {
-            this.oRouter.navTo("Product")
+            // Navigate to the Product view
+            this.oRouter.navTo("Product");
         },
 
         SupplierBtn: function() {
-            this.oRouter.navTo("Supplier")
+            // Navigate to the Supplier view
+            this.oRouter.navTo("Supplier");
         },
-
-
-        
     });
 });
