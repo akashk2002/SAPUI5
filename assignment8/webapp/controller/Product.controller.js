@@ -1,4 +1,3 @@
-
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
@@ -9,12 +8,12 @@ function (Controller, JSONModel, Fragment) {
 
     return Controller.extend("com.yash.assignment8.controller.Product", {
         onInit: function (oEvent) {
-            // Initialize the router for navigation
+
             this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            
         },
 
         Language: function(oEvent) {
-            // Open the language selection popover
             var oButton = oEvent.getSource();
             if (!this._oPopover) {
                 Fragment.load({
@@ -32,7 +31,6 @@ function (Controller, JSONModel, Fragment) {
         },
 
         async Version() {
-            // Open the version dialog
             if (!this._oDialogVer) {
                 this._oDialogVer = await this.loadFragment({
                     name: "com.yash.assignment8.view.Popovers.VersionID"
@@ -49,29 +47,23 @@ function (Controller, JSONModel, Fragment) {
         },
 
         onOKVersion: function() {
-            // Handle version dialog confirmation
             this._oDialogVer.close();
         },
 
         Backbtn: function() {
-            // Navigate back to the previous view
-            this.oRouter.navTo("RouteView2");
+            this.oRouter.navTo("Customer")
         },
 
         onProductDetails: function (oEvent) {
-            // Get the binding context from the selected item
             var oItem = oEvent.getSource();
             var oBindingContext = oItem.getBindingContext();
 
-            // Extract the product ID from the selected item
             var sProductId = oBindingContext.getProperty("ProductID");
 
-            // Retrieve the data for the selected product
             var oModel = this.getView().getModel();
             var sPath = `/Products(${sProductId})`;
             var oProductData = oModel.getProperty(sPath);
 
-            // Create or fetch the Popover fragment
             if (!this._oPopover) {
                 Fragment.load({
                     id: this.getView().getId(),
@@ -88,29 +80,28 @@ function (Controller, JSONModel, Fragment) {
         },
 
         _openPopover: function (oItem) {
-            // Set the model for the popover and open it
             this._oPopover.setModel(new sap.ui.model.json.JSONModel(this.getView().getModel().getProperty(`/Products(${oItem.getBindingContext().getProperty("ProductID")})`)), "productDetails");
+
             this._oPopover.openBy(oItem);
         },
         
         EmployeeBtn: function() {
-            // Navigate to the Employee view
-            this.oRouter.navTo("Employee");
+            this.oRouter.navTo("Employee")
         },
 
         CustomerBtn: function() {
-            // Navigate to the Customer view
-            this.oRouter.navTo("Customer");
+            this.oRouter.navTo("Customer")
         },
 
         ProductBtn: function() {
-            // Navigate to the Product view
-            this.oRouter.navTo("Product");
+            this.oRouter.navTo("Product")
         },
 
         SupplierBtn: function() {
-            // Navigate to the Supplier view
-            this.oRouter.navTo("Supplier");
+            this.oRouter.navTo("Supplier")
         },
+
+
+        
     });
 });

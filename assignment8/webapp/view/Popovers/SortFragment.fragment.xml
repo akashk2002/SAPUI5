@@ -37,8 +37,8 @@
         </VBox>
         </content>
         <buttons>
-            <Button text="OK" press="onOKSort"/>
-            <Button text="Cancel" press="onCancelSort"/>
+            <Button text="OK" press="OKSort"/>
+            <Button text="Cancel" press="CancelSort"/>
         </buttons>
     </Dialog>
 </core:FragmentDefinition>

@@ -2,5 +2,9 @@
         {
             "name": "projects",
             "path": "."
+        },
+        {
+            "name": "Shopping Cart",
+            "path": "Shopping Cart"
         }
     ],"settings":{}}

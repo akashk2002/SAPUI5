@@ -1,0 +1,21 @@
+<mvc:View controllerName="assignment6.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Product Details">
+        <VBox>
+            <Image src="{photo}" width="200px" />
+            <ObjectHeader
+                title="{name}"
+                number="{price}"
+                numberUnit="{currency}">
+                <attributes>
+                    <ObjectAttribute title="Brand" text="{brand}" />
+                    <ObjectAttribute title="Availability" text="{availability}" />
+                    <ObjectAttribute title="Description" text="{description}" />
+                    <ObjectAttribute title="Measurements" text="{measurements}" />
+                    <ObjectAttribute title="Weight" text="{weight}" />
+                </attributes>
+            </ObjectHeader>
+        </VBox>
+    </Page>
+</mvc:View>

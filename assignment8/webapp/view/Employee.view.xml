@@ -2,6 +2,7 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:l="sap.ui.layout"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
+    
         <content>
             <Toolbar>
                 <ToolbarSpacer/>
@@ -14,7 +15,7 @@
                     <Title text="Employee" class="font"/>
                     <SearchField placeholder="Search" search="onSearch"/>
                     <Toolbar>
-                        <Text text="Total Employees ()" id="employeesCount" />
+                        <Text text="Employees ()" id="employeesCount" />
                         <ToolbarSpacer />
                         <Button icon="sap-icon://sort" tooltip="Sort" press="onSortPress" />
                     </Toolbar>
@@ -26,12 +27,16 @@
                 <VBox width="100%" class="container">
                     <Title text="Orders" class="font"/>
                     <SearchField placeholder="Search" search="onSearch"/>
+
+
                     <Toolbar>
                         <Text text="Total Orders ({/OrdersCount})" id="ordersCount" visible="false"/>
                         <ToolbarSpacer />
-                        <Button icon="sap-icon://sort" tooltip="Sort" press="onSortPress" />
+                        <Button icon="sap-icon://sort" tooltip="Sort" press="onSortPress2" />
                     </Toolbar>
-                    <List items="{OrderData>/Orders}" mode="SingleSelect" selectionChange="OrderSelect">
+
+
+                    <List id="l1" items="{OrderData>/Orders}" mode="SingleSelect" selectionChange="OrderSelect">
                         <StandardListItem title="{OrderData>OrderID}" description="{OrderData>CustomerID}" />
                     </List>
                 </VBox>
