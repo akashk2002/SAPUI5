@@ -1,21 +1,69 @@
 <mvc:View controllerName="assignment6.controller.View2"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page title="Product Details">
-        <VBox>
-            <Image src="{photo}" width="200px" />
-            <ObjectHeader
-                title="{name}"
-                number="{price}"
-                numberUnit="{currency}">
-                <attributes>
-                    <ObjectAttribute title="Brand" text="{brand}" />
-                    <ObjectAttribute title="Availability" text="{availability}" />
-                    <ObjectAttribute title="Description" text="{description}" />
-                    <ObjectAttribute title="Measurements" text="{measurements}" />
-                    <ObjectAttribute title="Weight" text="{weight}" />
-                </attributes>
-            </ObjectHeader>
-        </VBox>
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified">
+    
+    <Page>
+        <Wizard id="wizard">
+            <WizardStep title="Items">
+                <List id="itemList" items="{view>/items}">
+                    <StandardListItem title="{view>name}" description="{view>price} {view>currency}" />
+                </List>
+            </WizardStep>
+            <WizardStep title="Payment Method">
+                <HBox>
+                    <Button text="Credit Card" press="onPaymentMethodSelect" customData="{key: 'creditCard'}" />
+                    <Button text="PayPal" press="onPaymentMethodSelect" customData="{key: 'paypal'}" />
+                    <Button text="Bank Transfer" press="onPaymentMethodSelect" customData="{key: 'bankTransfer'}" />
+                </HBox>
+            </WizardStep>
+            <WizardStep title="Credit Card Details">
+                <VBox>
+                    <Label text="Card Holder Name" required="true" />
+                    <Input id="cardHolderName" placeholder="Card Holder Name" required="true" />
+                    <Label text="Credit Card Number" required="true" />
+                    <Input id="creditCardNumber" placeholder="Credit Card Number" required="true" />
+                    <Label text="Expiry Date" required="true" />
+                    <Input id="expiryDate" placeholder="Expiry Date" required="true" />
+                    <Label text="Security Code" required="true" />
+                    <Input id="securityCode" placeholder="Security Code" required="true" />
+                </VBox>
+            </WizardStep>
+            <WizardStep title="Invoice Address">
+                <VBox>
+                    <Label text="Street" />
+                    <Input id="street" placeholder="Street" />
+                    <Label text="City" />
+                    <Input id="city" placeholder="City" />
+                    <Label text="Postal Code" />
+                    <Input id="postalCode" placeholder="Postal Code" />
+                </VBox>
+            </WizardStep>
+            <WizardStep title="Delivery Type">
+                <Select id="deliveryType">
+                    <core:Item key="standard" text="Standard" />
+                    <core:Item key="express" text="Express" />
+                </Select>
+            </WizardStep>
+            <WizardStep title="Review Order">
+                <VBox>
+                    <Text text="Order Summary" />
+                    <List id="orderSummaryList" items="{view>/items}">
+                        <StandardListItem title="{view>name}" description="{view>price} {view>currency}" />
+                    </List>
+                    <Text text="Payment Method: {view>/selectedPaymentMethod}" />
+                    <Text text="Card Holder Name: {view>/cardHolderName}" />
+                    <Text text="Credit Card Number: {view>/creditCardNumber}" />
+                    <Text text="Expiry Date: {view>/expiryDate}" />
+                    <Text text="Security Code: {view>/securityCode}" />
+                    <Text text="Invoice Address: {view>/invoiceAddress/street}, {view>/invoiceAddress/city}, {view>/invoiceAddress/postalCode}" />
+                    <Text text="Delivery Type: {view>/deliveryType}" />
+                    <Button text="Place Order" press="onPlaceOrder" />
+                </VBox>
+            </WizardStep>
+        </Wizard>
+        <Button text="Review Order" press="onReviewOrder" />
     </Page>
 </mvc:View>

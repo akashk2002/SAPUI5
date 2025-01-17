@@ -1,51 +1,116 @@
 <mvc:View controllerName="assignment6.controller.View1"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns:core="sap.ui.core"
-    xmlns="sap.m">
-    <Page title="Products">
-        <ScrollContainer height="100%" vertical="true">
-            <Table id="idProductsTable"
-                inset="false"
-                items="{
-                    path: '/Products',
-                    sorter: {
-                        path: 'name'
-                    }
-                }">
-                <headerToolbar>
-                    <OverflowToolbar>
-                        <content>
-                            <Title text="Products" level="H2"/>
-                            <ToolbarSpacer />
-                        </content>
-                    </OverflowToolbar>
-                </headerToolbar>
-                <infoToolbar>
-                    <OverflowToolbar>
-                        <Label text="Wide range of available products"/>
-                    </OverflowToolbar>
-                </infoToolbar>
-                <columns>
-                    <Column width="12em">
-                        <Text text="Product" />
-                    </Column>
-                    <Column hAlign="End">
-                        <Text text="Price" />
-                    </Column>
-                </columns>
-                <items>
-                    <ColumnListItem vAlign="Middle">
-                        <cells>
-                            <ObjectIdentifier title="{name}" text="{brand}"/>
-                            <VBox alignItems="End">
-                                <Image src="{photo}" width="100px" height="100px" />
-                                <ObjectNumber number="{price}" unit="{currency}" />
-                                <ObjectStatus text="{availability}" state="{path: 'availability', formatter: '.formatter.formatAvailabilityState'}" />
-                            </VBox>
-                        </cells>
-                    </ColumnListItem>
-                </items>
-            </Table>
-        </ScrollContainer>
-    </Page>
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:l="sap.ui.layout">
+    <f:FlexibleColumnLayout id="flexibleColumnLayout" layout="OneColumn" backgroundDesign="Solid">
+   
+        <f:beginColumnPages>
+            <Page id="beginPage" title="Products">
+                <headerContent></headerContent>
+                <content>
+                    <Table id="productsTable"
+                        mode="SingleSelectMaster"
+                        itemPress="onListItemPress"
+                        inset="false"
+                        items="{value>/Products}"
+                        class="sapFDynamicPageAlignContent"
+                        width="auto">
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <ToolbarSpacer/>
+                                <SearchField search="onSearch" width="17.5rem"/>
+                                <OverflowToolbarButton icon="sap-icon://sort" type="Transparent" press="onSort"/>
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column width="12em">
+                                <Text text="Product" />
+                            </Column>
+                            <Column hAlign="End">
+                                <Text text="Price" />
+                            </Column>
+                        </columns>
+                        <items>
+                                         <ColumnListItem type="Navigation" press="onListItemPress">
+                                <cells>
+                                    <VBox>
+                                        <Image src="{value>photo}" width="3rem" height="3rem" />
+                                        <ObjectIdentifier title="{value>name}" text="{value>description}" />
+                                    </VBox>
+                                    <VBox>
+                                        <ObjectIdentifier title="{value>price} {value>currency}" />
+                                        <ObjectStatus
+                                            text="{value>availability}"
+                                            state="{path: 'value>availability', formatter: '.formatAvailabilityState'}"
+                                        />
+                                    </VBox>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Page>
+        </f:beginColumnPages>
+        <f:midColumnPages>
+            <Page id="detailPage" title="Product Details">
+                <headerContent>
+                    <Toolbar >
+                        <Button text="" press="onShowCardPress" icon="sap-icon://cart" />
+                    </Toolbar>
+                </headerContent>
+                <content>
+                    <VBox class="productDetails">
+                        <ObjectHeader id="nameAttribute"  />
+                        <ObjectAttribute id="priceAttribute" />
+                        <ObjectAttribute id="currencyAttribute" />
+                        <ObjectAttribute id="availabilityAttribute" />
+                        <ObjectAttribute id="supplierAttribute" />
+                        <ObjectAttribute id="descriptionAttribute" />
+                        <ObjectAttribute id="weightAttribute" />
+                        <ObjectAttribute id="measurementsAttribute" />
+                        <Image id="productImage" width="50%" press="onImagePress" />
+                    </VBox>
+                </content>
+                <footer>
+                    <Toolbar>
+                        <ToolbarSpacer />
+                        <Button text="Add to Cart" press="onAddToCartPress" type="Emphasized" />
+                    </Toolbar>
+                </footer>
+            </Page>
+        </f:midColumnPages>
+        <f:endColumnPages>
+            <Page id="endPage" title="Product Card">
+                <headerContent>
+                    <Toolbar id="editToolbar" visible="false">
+                        <Button text="" press="onEditPress" icon="sap-icon://edit"/>
+                    </Toolbar>
+                </headerContent>
+                <content>
+                    <VBox class="productDetails">
+                        <Button text="Items in Shopping Cart" width="100%" type="Emphasized"/>
+                        <List id="shoppingCartList" mode="None" delete="onDeletePress" >
+                            <items>
+                           
+                            </items>
+                        </List>
+                        <Label text="" />
+                        <Button text="Saving for Later" width="100%" type="Emphasized"/>
+                        <List id="savingForLaterList">
+                            <items></items>
+                        </List>
+                    </VBox>
+                </content>
+                <footer>
+                    <Toolbar>
+                        <Text id="totalPriceText" text="Total Price: 0 EUR" />
+                        <ToolbarSpacer />
+                        <Button text="Proceed" press="onProceedPress" type="Accept"/>
+                    </Toolbar>
+                </footer>
+            </Page>
+        </f:endColumnPages>
+    </f:FlexibleColumnLayout>
 </mvc:View>
+ 
